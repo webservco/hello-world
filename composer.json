@@ -14,16 +14,26 @@
 			"email" : "ariademur@webserv.co"
 		}
 	],
+	"repositories": [
+        {
+            "type": "path",
+            "url": "~/projects/local/webservco/framework",
+	    "options": {
+                "symlink": true
+            }
+        }
+        ],
 	"require" : {
 		"php" : "^5.4 || ^7.0"
 	},
 	"require-dev" : {
 		"pds/skeleton" : "~1.0",
-		"friendsofphp/php-cs-fixer" : "2.9.0"
+		"friendsofphp/php-cs-fixer" : "2.9.0",
+		"webservco/framework": "@dev"
 	},
 	"autoload" : {
 		"psr-4" : {
-			"App\\" : "src/"
+			"Project\\" : "src/"
 		}
 	},
 	"minimum-stability" : "stable"

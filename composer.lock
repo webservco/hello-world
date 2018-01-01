@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "098c2fd3d7ed9eb7b4a143e6c42fa769",
+    "content-hash": "3d6f2c904aa808ce4ea06e72ef64a7db",
     "packages": [],
     "packages-dev": [
         {
@@ -1001,11 +1001,54 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
             "time": "2017-11-09T12:45:29+00:00"
+        },
+        {
+            "name": "webservco/framework",
+            "version": "dev-9.0-dev",
+            "dist": {
+                "type": "path",
+                "url": "/home/radu/projects/local/webservco/framework",
+                "reference": "b67c6bd029edf25fbee91b50d63f59d10cb92b85",
+                "shasum": null
+            },
+            "require": {
+                "php": "^5.4 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.9.0",
+                "pds/skeleton": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebServCo\\": "src/WebServCo/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Radu Maier",
+                    "email": "ariademur@webserv.co"
+                }
+            ],
+            "description": "A PHP Framework",
+            "homepage": "https://webserv.co",
+            "keywords": [
+                "framework",
+                "webservco"
+            ],
+            "transport-options": {
+                "symlink": true
+            }
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "webservco/framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
