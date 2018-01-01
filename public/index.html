@@ -5,11 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sample App for the WebServCo PHP Framework">
     <title>Hello World!</title>
+    
+    <!-- https://purecss.io/layouts/blog/ -->
+    <link rel="stylesheet" href="css/pure-min.1.0.0.css">
+    
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/pure-grids-responsive-old-ie-min.1.0.0.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/pure-grids-responsive-min.1.0.0.css">
+    <!--<![endif]-->
+    
+    <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/style-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/style.css">
+    <!--<![endif]-->
 </head>
 <body>
-        <div>
-            <h1>Hello World!</h1>
-            <p>Sample App for the WebServCo PHP Framework</p>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Hello World!</h1>
+            <h2 class="brand-tagline">Sample App for the WebServCo PHP Framework</h2>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="page.html">Page</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    </div>
+    
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                <h1 class="content-subhead">Home</h1>
+                
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Avatar" class="post-avatar" src="img/tape.png">
+                        <h2 class="post-title">Title 1</h2>
+                        <p class="post-meta">
+                            Tags:
+                            <a class="post-category post-category-design" href="#">CSS</a>
+                            <a class="post-category post-category-js" href="#">JavaScript</a>
+                            <a class="post-category" href="#">Uncategorized</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim in mauris vel tristique. Integer ac nulla ac mauris malesuada scelerisque non non felis. Cras a tincidunt nulla. Cras laoreet, eros a tempus ornare, risus est ultricies libero, in consequat augue nunc at lacus. Fusce interdum, nibh et laoreet tincidunt, lorem mi pharetra felis, commodo finibus justo velit eu enim. Sed pellentesque a lorem a iaculis. Nulla non sodales tortor, eu ultrices eros. Praesent viverra neque urna, sed eleifend odio tincidunt vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus malesuada cursus massa in facilisis. Vivamus interdum nisl eget ultrices pretium. 
+                        </p>
+                    </div>
+                </section>
+                
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Avatar" class="post-avatar" src="img/record.png">
+                        <h2 class="post-title">Title 2</h2>
+                        <p class="post-meta">
+                            Tags:
+                            <a class="post-category post-category-design" href="#">CSS</a>
+                            <a class="post-category post-category-js" href="#">JavaScript</a>
+                            <a class="post-category" href="#">Uncategorized</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim in mauris vel tristique. Integer ac nulla ac mauris malesuada scelerisque non non felis. Cras a tincidunt nulla. Cras laoreet, eros a tempus ornare, risus est ultricies libero, in consequat augue nunc at lacus. Fusce interdum, nibh et laoreet tincidunt, lorem mi pharetra felis, commodo finibus justo velit eu enim. Sed pellentesque a lorem a iaculis. Nulla non sodales tortor, eu ultrices eros. Praesent viverra neque urna, sed eleifend odio tincidunt vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus malesuada cursus massa in facilisis. Vivamus interdum nisl eget ultrices pretium. 
+                        </p>
+                    </div>
+                </section>
+                
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Avatar" class="post-avatar" src="img/tape.png">
+                        <h2 class="post-title">Title 3</h2>
+                        <p class="post-meta">
+                            Tags:
+                            <a class="post-category post-category-design" href="#">CSS</a>
+                            <a class="post-category post-category-js" href="#">JavaScript</a>
+                            <a class="post-category" href="#">Uncategorized</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim in mauris vel tristique. Integer ac nulla ac mauris malesuada scelerisque non non felis. Cras a tincidunt nulla. Cras laoreet, eros a tempus ornare, risus est ultricies libero, in consequat augue nunc at lacus. Fusce interdum, nibh et laoreet tincidunt, lorem mi pharetra felis, commodo finibus justo velit eu enim. Sed pellentesque a lorem a iaculis. Nulla non sodales tortor, eu ultrices eros. Praesent viverra neque urna, sed eleifend odio tincidunt vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus malesuada cursus massa in facilisis. Vivamus interdum nisl eget ultrices pretium. 
+                        </p>
+                    </div>
+                </section>
+            </div><!-- //posts -->
+            
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Menu Item</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Menu Item</a></li>
+                    </ul>
+                </div>
+            </div><!-- //footer -->
+        </div>
+    </div><!-- //content -->
+</div><!-- //layout -->
 </body>
 </html>
