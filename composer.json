@@ -1,7 +1,7 @@
 {
     "name": "webservco/hello-world",
     "type": "project",
-    "description": "A simple demo App for the WebServCo PHP Framework",
+    "description": "Sample App for the WebServCo PHP Framework",
     "keywords": ["framework", "webservco", "demo"],
     "homepage": "https://webserv.co",
     "license": "MIT",
