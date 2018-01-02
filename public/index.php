@@ -1,5 +1,10 @@
 <?php
-
 require __DIR__ . '/../vendor/autoload.php';
 
-echo 'Hello World!' . PHP_EOL;
+//settings
+
+//app
+$app = new \Project\App();
+
+echo $app->helloWorld();
+//echo 'Hello World!' . PHP_EOL;
