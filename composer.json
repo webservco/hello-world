@@ -36,5 +36,10 @@
 			"Project\\" : "src/"
 		}
 	},
-	"minimum-stability" : "stable"
+	"minimum-stability" : "stable",
+	"scripts" : {
+                "check" : [
+                        "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
+                ]
+        }
 }
