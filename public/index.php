@@ -1,10 +1,9 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-//settings
+$app = new \Project\App(__DIR__);
+$app->start();
+$app->run();
+$app->stop();
 
-//app
-$app = new \Project\App();
-
-echo $app->helloWorld();
-//echo 'Hello World!' . PHP_EOL;
+exit;
