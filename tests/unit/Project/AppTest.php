@@ -20,45 +20,59 @@ final class AppTest extends TestCase
     /**
     * @test
     */
+    public function dummyProjectPathIsReadable()
+    {
+        $this->assertTrue(is_readable($this->pathProject));
+    }
+    
+    /**
+    * @test
+    */
+    public function dummyWebPathIsReadable()
+    {
+        $this->assertTrue(is_readable($this->pathWeb));
+    }
+    
+    /**
+    * @test
+    * @expectedException \ErrorException
+    */
     public function instantiationWithNullParameterThrowsException()
     {
-        $this->expectException('\ErrorException');
-         
         new App(null);
     }
     
     /**
     * @test
+    * @expectedException \ErrorException
     */
     public function instantiationWithEmptyParameterThrowsException()
     {
-        $this->expectException('\ErrorException');
-         
         new App('');
     }
     
     /**
     * @test
+    * @expectedException \ErrorException
     */
     public function instantiationWithDummyParameterThrowsException()
     {
-        $this->expectException('\ErrorException');
-         
         new App('foo');
     }
     
     /**
     * @test
+    * @expectedException \ErrorException
     */
     public function instantiationInvalidParameterThrowsException()
     {
-        $this->expectException('\ErrorException');
-         
         new App('/tmp', '/tmp');
     }
     
     /**
     * @test
+    * @depends dummyProjectPathIsReadable
+    * @depends dummyWebPathIsReadable
     */
     public function instantiationWithValidParameterWorks()
     {
