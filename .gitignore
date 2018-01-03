@@ -4,3 +4,9 @@ vendor/
 .buildpath
 .project
 .settings/
+
+# Configuration
+.env
+config/dev/app.php
+config/test/app.php
+config/prod/app.php
