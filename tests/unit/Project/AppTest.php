@@ -3,18 +3,23 @@
 namespace Tests\Project;
 
 use PHPUnit\Framework\TestCase;
+use org\bovigo\vfs\vfsStream;
 use Project\App;
 
 final class AppTest extends TestCase
 {
-    protected $pathProject = '';
-    protected $pathWeb = '';
+    private $filesystem;
+    
+    private $pathProject = '';
+    private $pathWeb = '';
     
     public function setUp()
     {
+        $this->filesystem = vfsStream::setup();
         $pathProject = str_replace('unit/Project','',__DIR__) . 'assets/project/';
-        $this->pathProject = $pathProject;
-        $this->pathWeb = "{$pathProject}public/";
+        vfsStream::copyFromFileSystem($pathProject, $this->filesystem);
+        $this->pathProject = $this->filesystem->url() . '/';
+        $this->pathWeb = $this->filesystem->url() . '/public/';
     }
     
     /**
