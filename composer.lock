@@ -95,7 +95,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/radu/projects/local/webservco/framework",
-                "reference": "4949ef323a319dbba32a463e99c13b926afe7990",
+                "reference": "835e93a0a697c71e0e13644a1c88e618acd60886",
                 "shasum": null
             },
             "require": {
@@ -103,6 +103,7 @@
             },
             "require-dev": {
                 "pds/skeleton": "~1.0",
+                "phpunit/phpunit": "~4|~5",
                 "squizlabs/php_codesniffer": "3.*"
             },
             "type": "library",
@@ -112,8 +113,17 @@
                 }
             },
             "scripts": {
+                "check:structure": [
+                    "vendor/bin/pds-skeleton validate"
+                ],
                 "check": [
-                    "vendor/bin/phpcs --standard=PSR2 src"
+                    "vendor/bin/phpcs --standard=PSR2 --extensions=php src tests"
+                ],
+                "test": [
+                    "vendor/bin/phpunit --colors=always"
+                ],
+                "test:d": [
+                    "vendor/bin/phpunit --testdox"
                 ]
             },
             "license": [

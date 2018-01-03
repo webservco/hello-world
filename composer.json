@@ -37,7 +37,7 @@
 	},
 	"minimum-stability" : "stable",
 	"scripts" : {
-		"check-structure" : "vendor/bin/pds-skeleton validate",
-		"check-code" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
+		"check:structure" : "vendor/bin/pds-skeleton validate",
+		"check" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
 	}
 }
