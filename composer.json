@@ -39,6 +39,8 @@
 	"minimum-stability" : "stable",
 	"scripts" : {
 		"check:structure" : "vendor/bin/pds-skeleton validate",
-		"check" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
+		"check" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src public",
+		"test" : "vendor/bin/phpunit --colors=always",
+                "test:d" : "vendor/bin/phpunit --testdox"
 	}
 }
