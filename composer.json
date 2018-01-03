@@ -14,22 +14,21 @@
 			"email" : "ariademur@webserv.co"
 		}
 	],
-	"repositories": [
-        {
-            "type": "path",
-            "url": "~/projects/local/webservco/framework",
-	    "options": {
-                "symlink": true
-            }
-        }
-        ],
+	"repositories" : [{
+			"type" : "path",
+			"url" : "~/projects/local/webservco/framework",
+			"options" : {
+				"symlink" : true
+			}
+		}
+	],
 	"require" : {
 		"php" : "^5.4 || ^7.0"
 	},
 	"require-dev" : {
 		"pds/skeleton" : "~1.0",
 		"squizlabs/php_codesniffer" : "3.*",
-		"webservco/framework": "@dev"
+		"webservco/framework" : "@dev"
 	},
 	"autoload" : {
 		"psr-4" : {
@@ -38,8 +37,7 @@
 	},
 	"minimum-stability" : "stable",
 	"scripts" : {
-                "check" : [
-                        "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
-                ]
-        }
+		"check-structure" : "vendor/bin/pds-skeleton validate",
+		"check-code" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src public"
+	}
 }
