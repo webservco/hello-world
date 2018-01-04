@@ -13,4 +13,14 @@ class App extends \WebServCo\Framework\Application
         
         parent::__construct($pathPublic, $pathProject);
     }
+    
+    /**
+     * Handle Errors
+     *
+     * @param mixed $exception and Error or Exception object.
+     */
+    public function handleErrors($exception = null)
+    {
+        return parent::handleErrors($exception);
+    }
 }
