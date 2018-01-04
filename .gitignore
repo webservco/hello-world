@@ -8,5 +8,4 @@ vendor/
 # Configuration
 .env
 config/dev/app.php
-config/test/app.php
-config/prod/app.php
+config/dev/Log.php

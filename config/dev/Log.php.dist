@@ -1,0 +1,10 @@
+<?php
+
+return [
+    /**
+     * Log level.
+     * 
+     * Options: debug, info, notice, warning, error, crit, alert, emerg
+     */
+    'level' => 'debug',
+];
