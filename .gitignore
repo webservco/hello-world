@@ -7,5 +7,6 @@ vendor/
 
 # Configuration
 .env
-config/dev/app.php
+config/dev/Date.php
 config/dev/Log.php
+config/dev/app.php
