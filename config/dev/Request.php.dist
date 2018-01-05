@@ -1,0 +1,8 @@
+<?php
+
+return [
+    /**
+     * Dummy extensions to remove from URL.
+     */
+    'suffixes' => ['.htm','.html'],
+];
