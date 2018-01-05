@@ -9,4 +9,5 @@ vendor/
 .env
 config/dev/Date.php
 config/dev/Log.php
+config/dev/Request.php
 config/dev/app.php
