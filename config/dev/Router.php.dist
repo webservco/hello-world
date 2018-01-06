@@ -1,0 +1,15 @@
+<?php
+
+return [
+    /**
+     * Default route to use when nothing is matched (index or home page).
+     */
+    'default_route' => ['ControllerName', 'methodName', ['arg1', 'arg2']],
+    /**
+     * Custom route aliases.
+     */
+    'routes' => [
+        'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
+        'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
+    ], 
+];
