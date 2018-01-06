@@ -3,13 +3,18 @@
 return [
     /**
      * Default route to use when nothing is matched (index or home page).
+     * ['ControllerName', 'methodName', ['arg1', 'arg2']],
      */
-    'default_route' => ['ControllerName', 'methodName', ['arg1', 'arg2']],
+    'default_route' => ['HelloWorld', 'hello', []],
     /**
      * Custom route aliases.
+     * Do not add the dummy extension here.
      */
     'routes' => [
+        'hi' => 'HelloWorld/hello/1',
         'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
         'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
+        'blog/({any})/({num})' => 'Blog/article/$2',
+        'qwerty' => 'Content/debugSomething/foo/bar',
     ], 
 ];
