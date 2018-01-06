@@ -1,5 +1,4 @@
 <?php
-
 namespace Project;
 
 class App extends \WebServCo\Framework\Application
@@ -7,7 +6,8 @@ class App extends \WebServCo\Framework\Application
     public function __construct($pathPublic, $pathProject = null)
     {
         /**
-         * Project can be located in a completely different place.
+         * Project can be located in a completely different place
+         * than the web directory.
          */
         $pathProject = $pathProject ?: realpath(__DIR__ . '/..');
         
@@ -15,12 +15,34 @@ class App extends \WebServCo\Framework\Application
     }
     
     /**
-     * Handle Errors
-     *
-     * @param mixed $exception and Error or Exception object.
+     * Run app (HTTP)
      */
-    public function handleErrors($exception = null)
+    public function runHttp()
     {
-        return parent::handleErrors($exception);
+        return parent::runHttp();
+    }
+    
+    /**
+     * Run app (CLI)
+     */
+    public function runCli()
+    {
+        return parent::runCli();
+    }
+
+    /**
+     * Handle HTTP errors.
+     */
+    public function haltHttp($errorInfo = [])
+    {
+        return parent::haltHttp($errorInfo);
+    }
+
+    /**
+     * Handle CLI errors
+     */
+    public function haltCli($errorInfo = [])
+    {
+        return parent::haltCli($errorInfo);
     }
 }
