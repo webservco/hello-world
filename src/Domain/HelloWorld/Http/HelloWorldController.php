@@ -25,13 +25,14 @@ final class HelloWorldController extends \Project\Controller
     final public function hello($json = false)
     {
         $data = [];
+        $data['app']['url'] = Fw::request()->guessAppUrl();
         $data['strings'] = [
             'title' => 'Hello World!',
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
         
         if ($json) {
-            echo $this->output()->json($data);  
+            echo $this->output()->json($data);
         } else {
             echo $this->output()->html($data, 'hello');
         }

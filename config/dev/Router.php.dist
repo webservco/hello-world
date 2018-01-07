@@ -14,7 +14,8 @@ return [
         'hi' => 'HelloWorld/hello/1',
         'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
         'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
-        'blog/({any})/({num})' => 'Blog/article/$2',
+        'blog/({any})/({num})' => 'Blog/post/$2',
+        'blog' => 'Blog/posts',
         'qwerty' => 'Content/debugSomething/foo/bar',
     ], 
 ];

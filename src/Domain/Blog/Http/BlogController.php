@@ -18,8 +18,9 @@ final class BlogController extends \Project\Controller
     final public function posts()
     {
         $data = [];
+        $data['app']['url'] = Fw::request()->guessAppUrl();
         $data['strings'] = [
-            'title' => 'Hello World!',
+            'title' => 'Blog',
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
         
@@ -29,9 +30,10 @@ final class BlogController extends \Project\Controller
     final public function post($id)
     {
         $data = [];
+        $data['app']['url'] = Fw::request()->guessAppUrl();
         $data['id'] = $id;
         $data['strings'] = [
-            'title' => 'Hello World!',
+            'title' => 'Blog post',
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
         

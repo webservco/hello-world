@@ -6,10 +6,10 @@
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a class="pure-button" href="home.html">Home</a>
+                        <a class="pure-button" href="<?=$this->data('app/url','/')?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="pure-button" href="page.html">Page</a>
+                        <a class="pure-button" href="<?=$this->data('app/url','/')?>blog">Blog</a>
                     </li>
                 </ul>
             </nav>
