@@ -1,5 +1,5 @@
 <?php
-namespace Project\Domain\HelloWorld;
+namespace Project\Domain\HelloWorld\Http;
 
 use WebServCo\Framework\Framework as Fw;
 
