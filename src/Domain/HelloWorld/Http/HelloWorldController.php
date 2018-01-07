@@ -2,26 +2,39 @@
 namespace Project\Domain\HelloWorld\Http;
 
 use WebServCo\Framework\Framework as Fw;
+use WebServCo\Framework\Settings as S;
 
-final class HelloWorldController extends \WebServCo\Framework\AbstractController
+final class HelloWorldController extends \Project\Controller
 {
-    public function __construct()
+    final public function __construct()
     {
-        parent::__construct(new \Project\OutputLoader);
+        parent::__construct(
+            new \Project\OutputLoader(
+                Fw::config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
+            )
+        );
+        
+        /**
+         * Further initialization
+         * eg
+         * $this->model = new HelloWorld;
+         * $this->database = ...
+         */
     }
     
-    final public function hello($simplified = false)
+    final public function hello($json = false)
     {
-        //echo $simplified ? 'Hi!' : 'Hello World!';
+        $data = [];
+        $data['strings'] = [
+            'title' => 'Hello World!',
+            'description' => 'Sample App for the WebServCo PHP Framework',
+        ];
         
-        //optionally set main template
-        
-        $data['title'] = 'Hello World!';
-        
-        //$this->output()->html($data, $template);
-        //Fw::output->html($data, $template);
-        //or
-        echo $this->output()->json($data);
+        if ($json) {
+            echo $this->output()->json($data);  
+        } else {
+            echo $this->output()->html($data, 'hello');
+        }
     }
     
     final public function foo()
