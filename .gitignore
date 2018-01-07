@@ -8,6 +8,7 @@ vendor/
 # Configuration
 .env
 config/dev/Date.php
+config/dev/HtmlOutput.php
 config/dev/Log.php
 config/dev/Request.php
 config/dev/Router.php

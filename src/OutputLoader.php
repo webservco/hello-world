@@ -3,9 +3,9 @@ namespace Project;
 
 class OutputLoader extends \WebServCo\Framework\OutputLoader
 {
-    public function html($data, $template)
+    public function html($data, $pageTemplate, $mainTemplate = null)
     {
-        return parent::html($data, $template);
+        return parent::html($data, $pageTemplate, $mainTemplate);
     }
     
     public function json($data)
