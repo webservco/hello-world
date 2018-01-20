@@ -1,7 +1,6 @@
 <?php
 namespace Project\Domain\Blog\Http;
 
-use WebServCo\Framework\Framework as Fw;
 use WebServCo\Framework\Settings as S;
 
 final class BlogController extends \Project\Controller
@@ -12,7 +11,7 @@ final class BlogController extends \Project\Controller
     {
         parent::__construct(
             new \Project\OutputLoader(
-                Fw::config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
+                $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
             )
         );
         

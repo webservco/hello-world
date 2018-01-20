@@ -1,7 +1,6 @@
 <?php
 namespace Project\Domain\HelloWorld\Http;
 
-use WebServCo\Framework\Framework as Fw;
 use WebServCo\Framework\Settings as S;
 
 final class HelloWorldController extends \Project\Controller
@@ -10,7 +9,7 @@ final class HelloWorldController extends \Project\Controller
     {
         parent::__construct(
             new \Project\OutputLoader(
-                Fw::config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
+                $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
             )
         );
         
