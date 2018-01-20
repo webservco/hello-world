@@ -12,4 +12,3 @@ config/dev/HtmlOutput.php
 config/dev/Log.php
 config/dev/Request.php
 config/dev/Router.php
-config/dev/app.php
