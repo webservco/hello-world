@@ -17,6 +17,6 @@ class Controller extends \WebServCo\Framework\AbstractController
     
     final protected function request()
     {
-        return Fw::getLibrary('Request', [$_SERVER, $_POST]);
+        return Fw::getLibrary('Request');
     }
 }
