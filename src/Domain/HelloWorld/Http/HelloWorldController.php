@@ -25,7 +25,7 @@ final class HelloWorldController extends \Project\Controller
     final public function hello($json = false)
     {
         $data = [];
-        $data['app']['url'] = Fw::request()->guessAppUrl();
+        $data['app']['url'] = $this->request()->guessAppUrl();
         $data['strings'] = [
             'title' => 'Hello World!',
             'description' => 'Sample App for the WebServCo PHP Framework',

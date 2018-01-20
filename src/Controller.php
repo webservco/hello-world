@@ -7,4 +7,9 @@ class Controller extends \WebServCo\Framework\AbstractController
     {
         parent::__construct($outputLoader);
     }
+    
+    final protected function request()
+    {
+        return Fw::getLibrary('Request', [$_SERVER, $_POST]);
+    }
 }
