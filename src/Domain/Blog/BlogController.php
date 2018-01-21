@@ -9,13 +9,12 @@ final class BlogController extends \Project\Controller
     
     final public function __construct()
     {
-        parent::__construct(
-            new \Project\OutputLoader(
-                $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
-            )
+        $outputLoader = new \Project\OutputLoader(
+            $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
         );
+        parent::__construct($outputLoader);
         
-        $this->repository = new \Project\Domain\Blog\BlogRepository();
+        $this->repository = new \Project\Domain\Blog\BlogRepository($outputLoader);
     }
     
     final public function posts()
@@ -28,7 +27,7 @@ final class BlogController extends \Project\Controller
         ];
         
         //XXX return new Response()?
-        echo $this->output()->html($data, 'Blog/posts');
+        echo $this->output()->htmlPage($data, 'Blog/posts');
     }
     
     final public function post($id)
@@ -41,7 +40,7 @@ final class BlogController extends \Project\Controller
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
         
-        echo $this->output()->html($data, 'Blog/post');
+        echo $this->output()->htmlPage($data, 'Blog/post');
     }
     
     final public function test()

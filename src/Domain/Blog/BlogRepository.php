@@ -26,7 +26,7 @@ class BlogRepository extends \Project\Repository
         $query = "SELECT id, title, content FROM blog_posts WHERE 1 ORDER BY id DESC";
         $stmt = $this->pdoDb()->query($query);
         while ($post = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-            $post['html'] = null;
+            $post['html'] = $this->output()->html($post, 'Blog/postItem');
             $posts[] = $post;
         }
         return $posts;
@@ -38,7 +38,7 @@ class BlogRepository extends \Project\Repository
         $query = "SELECT id, title, content FROM blog_posts WHERE 1 ORDER BY id DESC";
         $result = $this->mysqliDb()->query($query)->get_result();
         while ($post = $result->fetch_assoc()) {
-            $post['html'] = null;
+            $post['html'] = $this->output()->html($post, 'Blog/postItem');
             $posts[] = $post;
         }
         return $posts;

@@ -33,7 +33,7 @@ final class HelloWorldController extends \Project\Controller
         if ($json) {
             echo $this->output()->json($data);
         } else {
-            echo $this->output()->html($data, 'hello');
+            echo $this->output()->htmlPage($data, 'hello');
         }
     }
     
