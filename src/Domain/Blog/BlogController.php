@@ -27,7 +27,7 @@ final class BlogController extends \Project\Controller
         ];
         $data['posts'] = $this->repository->getAll();
         
-        //XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        //XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         echo $this->output()->htmlPage($data, 'Blog/posts');
     }
     
