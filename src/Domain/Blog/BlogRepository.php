@@ -4,6 +4,45 @@ namespace Project\Domain\Blog;
 
 class BlogRepository extends \Project\Repository
 {
+    public function getAll()
+    {
+        $posts = [];
+        switch (true) {
+            case $this->db() instanceof \WebServCo\Framework\Libraries\PdoDatabase:
+                $posts = $this->getAllPdo();
+                break;
+            case $this->db() instanceof \WebServCo\Framework\Libraries\MysqliDatabase:
+                $posts = $this->getAllMysqli();
+                break;
+            default:
+                break;
+        }
+        return $posts;
+    }
+    
+    public function getAllPdo()
+    {
+        $posts = [];
+        $query = "SELECT id, title, content FROM blog_posts WHERE 1 ORDER BY id DESC";
+        $stmt = $this->pdoDb()->query($query);
+        while ($post = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $post['html'] = null;
+            $posts[] = $post;
+        }
+        return $posts;
+    }
+    
+    public function getAllMysqli()
+    {
+        $posts = [];
+        $query = "SELECT id, title, content FROM blog_posts WHERE 1 ORDER BY id DESC";
+        $result = $this->mysqliDb()->query($query)->get_result();
+        while ($post = $result->fetch_assoc()) {
+            $post['html'] = null;
+            $posts[] = $post;
+        }
+        return $posts;
+    }
     
     public function test1()
     {
@@ -42,13 +81,13 @@ class BlogRepository extends \Project\Repository
     
     public function delete($id)
     {
-        $this->db()->executeQuery("DELETE FROM blog_posts WHERE id = ?", [$id]);
+        $this->db()->query("DELETE FROM blog_posts WHERE id = ?", [$id]);
         return $this->db()->affectedRows();
     }
     
     public function clear()
     {
-        $this->db()->executeQuery("TRUNCATE TABLE blog_posts");
+        $this->db()->query("TRUNCATE TABLE blog_posts");
         return $this->db()->affectedRows();
     }
     
@@ -58,7 +97,7 @@ class BlogRepository extends \Project\Repository
         $post1 = ['title' => 'Title1', 'content' => 'Content1'];
         $post2 = ['title' => 'Title2', 'content' => 'Content2'];
         $post3 = ['title' => 'Title3', 'content' => 'Content3'];
-        $this->db()->executeTransaction(
+        $this->db()->transaction(
             [
                 ["TRUNCATE TABLE blog_posts", null],
                 ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post1],
@@ -75,10 +114,12 @@ class BlogRepository extends \Project\Repository
         return $this->db()->lastInsertId();
     }
     
-    public function getAll()
+    public function getSimple()
     {
         return $this->db()->getRows("SELECT id, title, content FROM blog_posts WHERE 1");
     }
+    
+    
     
     public function countAll()
     {
@@ -106,7 +147,7 @@ class BlogRepository extends \Project\Repository
     
     public function update()
     {
-        $this->db()->executeQuery("UPDATE blog_posts SET content = ? WHERE id = ?", ['Modified content', 5]);
+        $this->db()->query("UPDATE blog_posts SET content = ? WHERE id = ?", ['Modified content', 5]);
         return $this->db()->affectedRows();
     }
     

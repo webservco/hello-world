@@ -50,11 +50,11 @@ final class BlogController extends \Project\Controller
         
         //var_dump($this->repository->update());
         
-        var_dump($this->repository->getTitle());
+        //var_dump($this->repository->getTitle());
         //var_dump($this->repository->getOne());
         //var_dump($this->repository->getSome());
         
-        //var_dump($this->repository->getAll());
+        var_dump($this->repository->getAll());
         //var_dump($this->repository->countAll());
         
         //var_dump($this->repository->transaction());
