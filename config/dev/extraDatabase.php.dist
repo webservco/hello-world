@@ -1,0 +1,19 @@
+<?php
+
+return [
+    /**
+     * Database driver.
+     * Options: mysql
+     */
+    'driver' => 'mysql',
+    /**
+     * Connection credentials
+     */
+    'connection' => [
+        'host' => '127.0.0.1',
+        'username' => 'root',
+        'passwd' => '',
+        'dbname' => 'hello-world_extra',
+        'port' => '3306',
+    ],
+];
