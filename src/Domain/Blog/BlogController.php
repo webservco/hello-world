@@ -25,8 +25,9 @@ final class BlogController extends \Project\Controller
             'title' => 'Blog',
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
+        $data['posts'] = $this->repository->getAll();
         
-        //XXX return new Response()?
+        //XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         echo $this->output()->htmlPage($data, 'Blog/posts');
     }
     
