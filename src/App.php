@@ -13,27 +13,11 @@ class App extends \WebServCo\Framework\Application
         
         parent::__construct($pathPublic, $pathProject);
     }
-    
-    /**
-     * Run app (HTTP)
-     */
-    public function runHttp()
-    {
-        return parent::runHttp();
-    }
-    
-    /**
-     * Run app (CLI)
-     */
-    public function runCli()
-    {
-        return parent::runCli();
-    }
 
     /**
      * Handle HTTP errors.
      */
-    public function haltHttp($errorInfo = [])
+    protected function haltHttp($errorInfo = [])
     {
         return parent::haltHttp($errorInfo);
     }
@@ -41,7 +25,7 @@ class App extends \WebServCo\Framework\Application
     /**
      * Handle CLI errors
      */
-    public function haltCli($errorInfo = [])
+    protected function haltCli($errorInfo = [])
     {
         return parent::haltCli($errorInfo);
     }
