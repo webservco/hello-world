@@ -1,5 +1,4 @@
 <?php
-
 namespace Project\Domain\Blog;
 
 class BlogRepository extends \Project\Repository
