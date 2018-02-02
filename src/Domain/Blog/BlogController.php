@@ -27,7 +27,12 @@ final class BlogController extends \Project\Controller
         ];
         $data['posts'] = $this->repository->getAll();
         
-        //XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        /* XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+         * Resposne method:
+         * - set status code (default 200)
+         * - echo output
+         */
+        
         echo $this->output()->htmlPage($data, 'Blog/posts');
     }
     
@@ -54,14 +59,14 @@ final class BlogController extends \Project\Controller
         //var_dump($this->repository->getOne());
         //var_dump($this->repository->getSome());
         
-        var_dump($this->repository->getAll());
+        //var_dump($this->repository->getAll());
         //var_dump($this->repository->countAll());
         
         //var_dump($this->repository->transaction());
         
         //var_dump($this->repository->clear());
         //var_dump($this->repository->addMultiple());
-        //var_dump($this->repository->add());
+        var_dump($this->repository->add());
         
         //var_dump($this->repository->delete(42));
         //var_dump($this->repository->test2());
