@@ -29,14 +29,4 @@ final class HelloWorldController extends \Project\Controller
             return $this->outputHtml($data, __FUNCTION__);
         }
     }
-    
-    public function foo()
-    {
-        echo __CLASS__ . ' ' . __METHOD__;
-    }
-    
-    public function bar()
-    {
-        echo __CLASS__ . ' ' . __METHOD__;
-    }
 }
