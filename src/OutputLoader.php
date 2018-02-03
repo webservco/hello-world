@@ -28,4 +28,9 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
     {
         return parent::json($data);
     }
+    
+    public function write($string, $eol = true)
+    {
+        return parent::write($string, $eol);
+    }
 }

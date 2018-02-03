@@ -11,7 +11,8 @@ return [
      * Do not add the dummy extension here.
      */
     'routes' => [
-        'hi' => 'HelloWorld/hello/1',
+        'hi' => 'HelloWorld/hello', /* Both HTTP and CLI */
+        'json' => 'HelloWorld/hello/1',
         'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
         'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
         'blog/({any})/({num})' => 'Blog/post/$2',
