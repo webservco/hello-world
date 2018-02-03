@@ -10,23 +10,13 @@ class Repository extends \WebServCo\Framework\AbstractRepository
         parent::__construct($outputLoader);
     }
     
-    final protected function pdoDb()
+    final protected function db()
     {
-        return Fw::getLibrary('PdoDatabase');
-    }
-    
-    final protected function mysqliDb()
-    {
-        return Fw::getLibrary('MysqliDatabase');
+        return $this->pdoDb();
     }
     
     final protected function extraDb()
     {
         return Fw::getLibrary('PdoDatabase', 'ExtraPdoDatabase', 'extraDatabase');
-    }
-    
-    final protected function db()
-    {
-        return $this->pdoDb();
     }
 }
