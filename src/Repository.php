@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-use WebServCo\Framework\Framework as Fw;
+use \WebServCo\Framework\Framework as Fw;
 
 class Repository extends \WebServCo\Framework\AbstractRepository
 {

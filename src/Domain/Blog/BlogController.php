@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\Blog;
 
-use WebServCo\Framework\Settings as S;
+use \WebServCo\Framework\Settings as S;
 
 final class BlogController extends \Project\Controller
 {

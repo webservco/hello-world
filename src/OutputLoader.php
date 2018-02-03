@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-use WebServCo\Framework\Framework as Fw;
+use \WebServCo\Framework\Framework as Fw;
 
 final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
 {

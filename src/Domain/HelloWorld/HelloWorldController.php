@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\HelloWorld;
 
-use WebServCo\Framework\Settings as S;
+use \WebServCo\Framework\Settings as S;
 
 final class HelloWorldController extends \Project\Controller
 {
