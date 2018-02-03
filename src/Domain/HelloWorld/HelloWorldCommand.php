@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\HelloWorld;
 
-use \WebServCo\Framework\Settings as S;
+use WebServCo\Framework\Settings as S;
 
 final class HelloWorldCommand extends \Project\Controller
 {
@@ -18,5 +18,6 @@ final class HelloWorldCommand extends \Project\Controller
     {
         $this->echo("Hello ", false);
         $this->echo(isset($name) ? $name : 'World');
+        return new \WebServCo\Framework\Libraries\CliResponse(null, 0);
     }
 }

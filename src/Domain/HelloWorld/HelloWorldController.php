@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\HelloWorld;
 
-use \WebServCo\Framework\Settings as S;
+use WebServCo\Framework\Settings as S;
 
 final class HelloWorldController extends \Project\Controller
 {
@@ -12,13 +12,6 @@ final class HelloWorldController extends \Project\Controller
                 $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
             )
         );
-        
-        /**
-         * Further initialization
-         * eg
-         * $this->model = new HelloWorld;
-         * $this->database = ...
-         */
     }
     
     public function hello($json = false)
@@ -31,9 +24,17 @@ final class HelloWorldController extends \Project\Controller
         ];
         
         if ($json) {
-            echo $this->output()->json($data);
+            return new \WebServCo\Framework\Libraries\HttpResponse(
+                $this->output()->json($data),
+                200,
+                ['Content-Type' => 'application/json']
+            );
         } else {
-            echo $this->output()->htmlPage($data, 'hello');
+            return new \WebServCo\Framework\Libraries\HttpResponse(
+                $this->output()->htmlPage($data, 'hello'),
+                200,
+                ['Content-Type' => 'text/html']
+            );
         }
     }
     

@@ -9,6 +9,7 @@
                                 <li><a href="<?=$this->data('app/url','/')?>hi">HTML: /hi</a></li>
                                 <li><a href="<?=$this->data('app/url','/')?>HelloWorld/hello/1">JSON: /HelloWorld/hello/1</a></li>
                                 <li><a href="<?=$this->data('app/url','/')?>json">JSON: /json</a></li>
+                                <li>CLI: php public/index.php</li>
                                 <li>CLI: bin/cli hi</li>
                                 <li>CLI: bin/cli hi Mr.Smith</li>
                             </ul>

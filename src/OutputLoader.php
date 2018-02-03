@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-use \WebServCo\Framework\Framework as Fw;
+use WebServCo\Framework\Framework as Fw;
 
 final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
 {
@@ -24,8 +24,12 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
         return parent::htmlPage($data, $pageTemplate, $mainTemplate);
     }
     
-    public function json($data)
+    public function json($data, $status = true)
     {
+        $data = [
+            'status' => true,
+            'data' => $data,
+        ];
         return parent::json($data);
     }
     
