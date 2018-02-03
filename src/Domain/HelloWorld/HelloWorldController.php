@@ -24,17 +24,9 @@ final class HelloWorldController extends \Project\Controller
         ];
         
         if ($json) {
-            return new \WebServCo\Framework\Libraries\HttpResponse(
-                $this->output()->json($data),
-                200,
-                ['Content-Type' => 'application/json']
-            );
+            return $this->outputJson($data);
         } else {
-            return new \WebServCo\Framework\Libraries\HttpResponse(
-                $this->output()->htmlPage($data, 'hello'),
-                200,
-                ['Content-Type' => 'text/html']
-            );
+            return $this->outputHtml($data, __FUNCTION__);
         }
     }
     
