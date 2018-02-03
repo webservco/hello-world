@@ -27,21 +27,7 @@ final class BlogController extends \Project\Controller
         ];
         $data['posts'] = $this->repository->getAll();
         
-        /* XXX return new Response()? //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-         * Resposne method:
-         * - set status code (default 200)
-         * - echo output
-         * return new HttpResponse implements Response($output, 200); //data, $httpCode
-         * or to set headers etc:
-         * $response = new HttpResponse(null, null);
-         * $response->setHeader($..);
-         * $response->setContent($..);
-         * $response->setStatusCode($..);
-         * return $response;
-         * XXX SET CONTENT TYPE (html, json)
-         */
-        
-        echo $this->output()->htmlPage($data, 'Blog/posts');
+        return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
     }
     
     public function post($id)
@@ -53,8 +39,7 @@ final class BlogController extends \Project\Controller
             'title' => 'Blog post',
             'description' => 'Sample App for the WebServCo PHP Framework',
         ];
-        
-        echo $this->output()->htmlPage($data, 'Blog/post');
+        return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
     }
     
     public function test()
