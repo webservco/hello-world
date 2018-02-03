@@ -7,7 +7,7 @@ final class BlogController extends \Project\Controller
 {
     protected $repository;
     
-    final public function __construct()
+    public function __construct()
     {
         $outputLoader = new \Project\OutputLoader(
             $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
@@ -17,7 +17,7 @@ final class BlogController extends \Project\Controller
         $this->repository = new \Project\Domain\Blog\BlogRepository($outputLoader);
     }
     
-    final public function posts()
+    public function posts()
     {
         $data = [];
         $data['app']['url'] = $this->request()->guessAppUrl();
@@ -31,12 +31,20 @@ final class BlogController extends \Project\Controller
          * Resposne method:
          * - set status code (default 200)
          * - echo output
+         * return new HttpResponse implements Response($output, 200); //data, $httpCode
+         * or to set headers etc:
+         * $response = new HttpResponse(null, null);
+         * $response->setHeader($..);
+         * $response->setContent($..);
+         * $response->setStatusCode($..);
+         * return $response;
+         * XXX SET CONTENT TYPE (html, json)
          */
         
         echo $this->output()->htmlPage($data, 'Blog/posts');
     }
     
-    final public function post($id)
+    public function post($id)
     {
         $data = [];
         $data['app']['url'] = $this->request()->guessAppUrl();
@@ -49,7 +57,7 @@ final class BlogController extends \Project\Controller
         echo $this->output()->htmlPage($data, 'Blog/post');
     }
     
-    final public function test()
+    public function test()
     {
         echo '<pre>';
         

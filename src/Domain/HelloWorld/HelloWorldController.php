@@ -5,7 +5,7 @@ use WebServCo\Framework\Settings as S;
 
 final class HelloWorldController extends \Project\Controller
 {
-    final public function __construct()
+    public function __construct()
     {
         parent::__construct(
             new \Project\OutputLoader(
@@ -21,7 +21,7 @@ final class HelloWorldController extends \Project\Controller
          */
     }
     
-    final public function hello($json = false)
+    public function hello($json = false)
     {
         $data = [];
         $data['app']['url'] = $this->request()->guessAppUrl();
@@ -37,12 +37,12 @@ final class HelloWorldController extends \Project\Controller
         }
     }
     
-    final public function foo()
+    public function foo()
     {
         echo __CLASS__ . ' ' . __METHOD__;
     }
     
-    final public function bar()
+    public function bar()
     {
         echo __CLASS__ . ' ' . __METHOD__;
     }

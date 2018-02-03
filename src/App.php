@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-class App extends \WebServCo\Framework\Application
+final class App extends \WebServCo\Framework\Application
 {
     public function __construct($pathPublic, $pathProject = null)
     {

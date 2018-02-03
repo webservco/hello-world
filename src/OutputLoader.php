@@ -3,7 +3,7 @@ namespace Project;
 
 use WebServCo\Framework\Framework as Fw;
 
-class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
+final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
 {
     public function __construct($projectPath)
     {
