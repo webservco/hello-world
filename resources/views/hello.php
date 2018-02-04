@@ -6,6 +6,7 @@
                         <p>
                             <ul>
                                 <li><a href="<?=$this->data('app/url','/')?>HelloWorld/hello">HTML: /HelloWorld/hello</a></li>
+                                <li><a href="<?=$this->data('app/url','/')?>HelloWorld/helloResponse">HTML: /HelloWorld/helloResponse</a></li>
                                 <li><a href="<?=$this->data('app/url','/')?>hi">HTML: /hi</a></li>
                                 <li><a href="<?=$this->data('app/url','/')?>HelloWorld/hello/1">JSON: /HelloWorld/hello/1</a></li>
                                 <li><a href="<?=$this->data('app/url','/')?>json">JSON: /json</a></li>
