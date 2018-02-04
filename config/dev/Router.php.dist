@@ -18,5 +18,5 @@ return [
         'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
         'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
         'qwerty' => 'Content/debugSomething/foo/bar',
-    ], 
+    ],
 ];
