@@ -9,12 +9,17 @@ final class BlogController extends \Project\Controller
     
     public function __construct()
     {
-        $outputLoader = new \Project\OutputLoader(
-            $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
+        $projectPath = $this->config()->get(
+            sprintf('app%1$spath%1$sproject', S::DIVIDER)
         );
+        
+        $outputLoader = new \Project\OutputLoader($projectPath);
+        
         parent::__construct($outputLoader);
         
         $this->repository = new \Project\Domain\Blog\BlogRepository($outputLoader);
+        
+        $this->session()->start($projectPath . 'var/sessions');
     }
     
     public function posts()
