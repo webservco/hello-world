@@ -79,7 +79,8 @@ final class HelloWorldController extends \Project\Controller
     public function sessionUnset()
     {
         $value = $this->session()->get(self::SESSION_KEY);
-        $this->session()->unset(self::SESSION_KEY);
+        //TODO Check if session has key (implement session()->has())
+        //$this->session()->remove(self::SESSION_KEY);
         $data = [];
         $data['app']['url'] = $this->request()->guessAppUrl();
         $data['strings'] = [
