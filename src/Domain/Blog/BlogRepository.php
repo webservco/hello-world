@@ -99,15 +99,15 @@ final class BlogRepository extends \Project\Repository
         $this->db()->transaction(
             [
                 ["TRUNCATE TABLE blog_posts", null],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post1],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post2],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post3],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post1],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post2],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post3],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post],
                 ["DELETE FROM blog_posts WHERE id = ?", [6]],
-                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)" , $post],
+                ["INSERT INTO blog_posts (title, content) VALUES (?, ?)", $post],
             ]
         );
         return $this->db()->lastInsertId();
