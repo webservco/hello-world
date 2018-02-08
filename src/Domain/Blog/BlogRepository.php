@@ -139,7 +139,7 @@ final class BlogRepository extends \Project\Repository
     public function getSome()
     {
         $ids = [1,2,3];
-        $sqlIn = $in  = str_repeat('?,', count($ids) - 1) . '?';
+        $sqlIn = str_repeat('?,', count($ids) - 1) . '?';
         $query = "SELECT title, content FROM blog_posts WHERE id IN({$sqlIn})";
         return $this->db()->getRows($query, $ids);
     }
