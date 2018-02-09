@@ -16,8 +16,8 @@ final class HelloWorldCommand extends \Project\Controller
     
     public function hello($name = null)
     {
-        $this->echo("Hello ", false);
-        $this->echo(isset($name) ? $name : 'World');
-        return new \WebServCo\Framework\Libraries\CliResponse(null, 0);
+        $this->outputCli("Hello ", false);
+        $this->outputCli(isset($name) ? $name : 'World');
+        return new \WebServCo\Framework\Libraries\CliResponse();
     }
 }
