@@ -7,6 +7,8 @@ final class BlogController extends \Project\Controller
 {
     protected $repository;
     
+    use \Project\Traits\BlogControllerTrait;
+    
     public function __construct()
     {
         $projectPath = $this->config()->get(
@@ -24,12 +26,8 @@ final class BlogController extends \Project\Controller
     
     public function posts()
     {
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
-        $data['strings'] = [
-            'title' => 'Blog',
-            'description' => 'Sample App for the WebServCo PHP Framework',
-        ];
+        $data = $this->getData();
+        
         $data['posts'] = $this->repository->getAll();
         
         return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
@@ -37,13 +35,11 @@ final class BlogController extends \Project\Controller
     
     public function post($id)
     {
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
+        $data = $this->getData();
+        
         $data['id'] = $id;
-        $data['strings'] = [
-            'title' => 'Blog post',
-            'description' => 'Sample App for the WebServCo PHP Framework',
-        ];
+        $data['strings']['title'] = 'Blog post';
+        
         return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
     }
     

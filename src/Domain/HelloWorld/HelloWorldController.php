@@ -5,7 +5,10 @@ use WebServCo\Framework\Settings as S;
 
 final class HelloWorldController extends \Project\Controller
 {
-    const SESSION_KEY = 'message';
+    const SESSION_KEY = 'foo';
+    const COOKIE_NAME = 'foo';
+    
+    use \Project\Traits\HelloWorldControllerTrait;
     
     public function __construct()
     {
@@ -22,12 +25,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function hello($json = false)
     {
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
-        $data['strings'] = [
-            'title' => 'Hello World!',
-            'description' => 'Sample App for the WebServCo PHP Framework',
-        ];
+        $data = $this->getData();
         
         if ($json) {
             return $this->outputJson($data);
@@ -38,12 +36,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function helloResponse()
     {
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
-        $data['strings'] = [
-            'title' => 'Hello World!',
-            'description' => 'Sample App for the WebServCo PHP Framework',
-        ];
+        $data = $this->getData();
         
         /**
          * Same thing as calling
@@ -56,42 +49,66 @@ final class HelloWorldController extends \Project\Controller
         );
     }
     
-    public function sessionSet()
+    public function sessions($action = null)
     {
-        $oldValue = $this->session()->get(self::SESSION_KEY);
-        $value = 'Hello World';
-        $this->session()->set(self::SESSION_KEY, $value);
+        $data = $this->getData();
         
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
-        $data['strings'] = [
-            'title' => 'Hello World!',
-            'result' => sprintf(
-                'Key "%s" has been set to value "%s".',
-                self::SESSION_KEY,
-                $value
-            ) . ' '. sprintf('Old value was "%s"', $oldValue),
-        ];
+        switch ($action) {
+            case 'set':
+                $data['strings']['title'] = 'Set session value';
+                $result = $this->session()->set(self::SESSION_KEY, 'bar');
+                break;
+            case 'remove':
+                $data['strings']['title'] = 'Remove session value';
+                try {
+                    if ($this->session()->has(self::SESSION_KEY)) {
+                        $result = $this->session()->remove(self::SESSION_KEY);
+                        break;
+                    } 
+                    $result = false;
+                } catch (\WebServCo\Framework\Exceptions\ArrayStorageException $e) {
+                    $result = $e->getMessage();
+                }
+                
+                break;
+            case 'get':
+            default:
+                $data['strings']['title'] = 'Get session value';
+                $result = $this->session()->get(self::SESSION_KEY);
+                break;
+        }
         
-        return $this->outputHtml($data, 'session');
+        $resultString = $this->getResultString($result);
+        
+        $data['strings']['message'] = sprintf('The result is: %s', $resultString);
+        
+        return $this->outputHtml($data, __FUNCTION__);
     }
     
-    public function sessionUnset()
+    public function cookies($action = null)
     {
-        $value = $this->session()->get(self::SESSION_KEY);
-        //TODO Check if session has key (implement session()->has())
-        //$this->session()->remove(self::SESSION_KEY);
-        $data = [];
-        $data['app']['url'] = $this->request()->guessAppUrl();
-        $data['strings'] = [
-            'title' => 'Hello World!',
-            'result' => sprintf(
-                'The value of key "%s" was "%s".',
-                self::SESSION_KEY,
-                $value
-            ) . ' The key has been removed',
-        ];
+        $data = $this->getData();
         
-        return $this->outputHtml($data, 'session');
+        switch ($action) {
+            case 'set':
+                $data['strings']['title'] = 'Set cookie';
+                $result = $this->cookie()->set(self::COOKIE_NAME, 'bar');
+                break;
+            case 'remove':
+                $data['strings']['title'] = 'Remove cookie';
+                $result = $this->cookie()->remove(self::COOKIE_NAME);
+                break;
+            case 'get':
+            default:
+                $data['strings']['title'] = 'Get cookie';
+                $result = $this->cookie()->get(self::COOKIE_NAME);
+                break;
+        }
+        
+        $resultString = $this->getResultString($result);
+        
+        $data['strings']['message'] = sprintf('The result is: %s', $resultString);
+        
+        return $this->outputHtml($data, __FUNCTION__);
     }
 }

@@ -7,4 +7,11 @@ class Controller extends \WebServCo\Framework\AbstractController
     {
         parent::__construct($outputLoader);
     }
+    
+    public function getResultString($result)
+    {
+        ob_start();
+        var_dump($result);
+        return ob_get_clean();
+    }
 }
