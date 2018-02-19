@@ -16,7 +16,7 @@ trait ControllerTrait
         return sprintf('%s/%s', $this->viewsDir, $templateName);
     }
     
-    //abstract protected function initI18n();
+    abstract protected function initI18n();
     
-    //abstract protected function setLanguage($lang);
+    abstract protected function setLanguage($lang);
 }
