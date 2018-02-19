@@ -7,21 +7,13 @@ final class BlogController extends \Project\Controller
 {
     protected $repository;
     
-    use \Project\Traits\BlogControllerTrait;
+    use BlogControllerTrait;
     
     public function __construct()
     {
-        $projectPath = $this->config()->get(
-            sprintf('app%1$spath%1$sproject', S::DIVIDER)
-        );
+        parent::__construct(__NAMESPACE__);
         
-        $outputLoader = new \Project\OutputLoader($projectPath);
-        
-        parent::__construct($outputLoader);
-        
-        $this->repository = new \Project\Domain\Blog\BlogRepository($outputLoader);
-        
-        $this->session()->start($projectPath . 'var/sessions');
+        $this->repository = new BlogRepository($this->outputLoader);
     }
     
     public function posts()
@@ -30,7 +22,7 @@ final class BlogController extends \Project\Controller
         
         $data['posts'] = $this->repository->getAll();
         
-        return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
+        return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
     
     public function post($id)
@@ -40,7 +32,7 @@ final class BlogController extends \Project\Controller
         $data['id'] = $id;
         $data['strings']['title'] = 'Blog post';
         
-        return $this->outputHtml($data, 'Blog/' . __FUNCTION__);
+        return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
     
     public function test()

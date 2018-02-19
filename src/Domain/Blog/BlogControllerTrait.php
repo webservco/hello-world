@@ -1,5 +1,5 @@
 <?php
-namespace Project\Traits;
+namespace Project\Domain\Blog;
 
 trait BlogControllerTrait
 {

@@ -8,19 +8,11 @@ final class HelloWorldController extends \Project\Controller
     const SESSION_KEY = 'foo';
     const COOKIE_NAME = 'foo';
     
-    use \Project\Traits\HelloWorldControllerTrait;
+    use HelloWorldControllerTrait;
     
     public function __construct()
     {
-        $projectPath = $this->config()->get(
-            sprintf('app%1$spath%1$sproject', S::DIVIDER)
-        );
-        
-        parent::__construct(
-            new \Project\OutputLoader($projectPath)
-        );
-        
-        $this->session()->start($projectPath . 'var/sessions');
+        parent::__construct(__NAMESPACE__);
     }
     
     public function hello($json = false)
@@ -30,7 +22,7 @@ final class HelloWorldController extends \Project\Controller
         if ($json) {
             return $this->outputJson($data);
         } else {
-            return $this->outputHtml($data, __FUNCTION__);
+            return $this->outputHtml($data, $this->getView(__FUNCTION__));
         }
     }
     
@@ -43,7 +35,7 @@ final class HelloWorldController extends \Project\Controller
          * return $this->outputHtml($data, 'hello');
          */
         return new \WebServCo\Framework\Libraries\HttpResponse(
-            $this->output()->htmlPage($data, 'hello', null),
+            $this->output()->htmlPage($data, $this->getView('hello'), null),
             200,
             ['Content-Type' => 'text/html']
         );
@@ -64,7 +56,7 @@ final class HelloWorldController extends \Project\Controller
                     if ($this->session()->has(self::SESSION_KEY)) {
                         $result = $this->session()->remove(self::SESSION_KEY);
                         break;
-                    } 
+                    }
                     $result = false;
                 } catch (\WebServCo\Framework\Exceptions\ArrayStorageException $e) {
                     $result = $e->getMessage();
@@ -82,7 +74,7 @@ final class HelloWorldController extends \Project\Controller
         
         $data['strings']['message'] = sprintf('The result is: %s', $resultString);
         
-        return $this->outputHtml($data, __FUNCTION__);
+        return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
     
     public function cookies($action = null)
@@ -109,6 +101,6 @@ final class HelloWorldController extends \Project\Controller
         
         $data['strings']['message'] = sprintf('The result is: %s', $resultString);
         
-        return $this->outputHtml($data, __FUNCTION__);
+        return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
 }
