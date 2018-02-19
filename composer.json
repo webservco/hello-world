@@ -15,15 +15,6 @@
             "email" : "ariademur@webserv.co"
         }
     ],
-    "repositories" : [
-        {
-            "type" : "path",
-            "url" : "~/projects/local/webservco/framework",
-            "options" : {
-                "symlink" : true
-            }
-        }
-    ],
     "require" : {
         "php" : "^5.4 || ^7.0"
     },

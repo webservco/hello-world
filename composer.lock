@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff941cedb8f18c7d2beeefbece5046fb",
+    "content-hash": "a38753091e8b206137f8e8bd6194d6ad",
     "packages": [],
     "packages-dev": [
         {
@@ -260,16 +260,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -319,7 +319,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1338,19 +1338,19 @@
             "dist": {
                 "type": "path",
                 "url": "/home/radu/projects/local/webservco/framework",
-                "reference": "311cf78e6fa7c2ad17532bb59506c9bdbcd33101",
+                "reference": "73f345bf52ef918ab213b8393245067e573fe6a4",
                 "shasum": null
             },
             "require": {
                 "php": "^5.4 || ^7.0"
             },
             "require-dev": {
-                "pds/skeleton": "~1.0",
-                "phpunit/phpunit": "~4|~5",
-                "squizlabs/php_codesniffer": "3.*"
+                "phpunit/phpunit": "~4|~5"
             },
             "suggest": {
-                "phpstan/phpstan": "PHP Static Analysis Tool, when using PHP 7.x"
+                "pds/skeleton": "A standard filesystem skeleton suitable for all PHP packages.",
+                "phpstan/phpstan": "PHP Static Analysis Tool, when using PHP 7.x",
+                "squizlabs/php_codesniffer": "Detects violations of a defined set of coding standards."
             },
             "type": "library",
             "autoload": {
@@ -1359,38 +1359,38 @@
                 }
             },
             "scripts": {
-                "check:structure": [
-                    "vendor/bin/pds-skeleton validate"
-                ],
-                "check": [
-                    "vendor/bin/phpcs --standard=PSR2 --extensions=php src tests"
-                ],
                 "test": [
                     "vendor/bin/phpunit --colors=always"
                 ],
                 "test:d": [
                     "vendor/bin/phpunit --testdox"
                 ],
+                "check:structure": [
+                    "pds-skeleton validate ."
+                ],
+                "check": [
+                    "phpcs --standard=PSR2 --extensions=php src tests"
+                ],
                 "s:1": [
-                    "phpstan analyse src --level=1 --ansi"
+                    "phpstan analyse src --level=1 --ansi -c phpstan.neon"
                 ],
                 "s:2": [
-                    "phpstan analyse src --level=2 --ansi"
+                    "phpstan analyse src --level=2 --ansi -c phpstan.neon"
                 ],
                 "s:3": [
-                    "phpstan analyse src --level=3 --ansi"
+                    "phpstan analyse src --level=3 --ansi -c phpstan.neon"
                 ],
                 "s:4": [
-                    "phpstan analyse src --level=4 --ansi"
+                    "phpstan analyse src --level=4 --ansi -c phpstan.neon"
                 ],
                 "s:5": [
-                    "phpstan analyse src --level=5 --ansi"
+                    "phpstan analyse src --level=5 --ansi -c phpstan.neon"
                 ],
                 "s:6": [
-                    "phpstan analyse src --level=6 --ansi"
+                    "phpstan analyse src --level=6 --ansi -c phpstan.neon"
                 ],
                 "s:7": [
-                    "phpstan analyse src --level=7 --ansi"
+                    "phpstan analyse src --level=7 --ansi -c phpstan.neon"
                 ]
             },
             "license": [
