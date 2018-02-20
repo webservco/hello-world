@@ -9,7 +9,7 @@ trait BlogControllerTrait
     {
         return [
             'app' => [
-                'url' => $this->request()->guessAppUrl(),
+                'url' => $this->request()->getAppUrl(),
             ],
             'strings' => [
                 'title' => 'Hello Blog!',
