@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-class Controller extends \WebServCo\Framework\AbstractController
+abstract class AbstractController extends \WebServCo\Framework\AbstractController
 {
     protected $projectPath;
     
@@ -18,11 +18,7 @@ class Controller extends \WebServCo\Framework\AbstractController
         
         $this->session()->start($this->projectPath . 'var/sessions');
         
-        //$this->query = $this->request()->getQuery();
-        
         $this->initViews($namespace);
-        //$this->initI18n();
-        
-        //XXX
+        $this->initI18n();
     }
 }

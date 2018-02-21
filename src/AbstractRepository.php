@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-class Repository extends \WebServCo\Framework\AbstractRepository
+abstract class AbstractRepository extends \WebServCo\Framework\AbstractRepository
 {
     use \Project\Traits\RepositoryTrait;
     

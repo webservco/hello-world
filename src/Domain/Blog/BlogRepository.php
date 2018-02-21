@@ -1,7 +1,7 @@
 <?php
 namespace Project\Domain\Blog;
 
-final class BlogRepository extends \Project\Repository
+final class BlogRepository extends \Project\AbstractRepository
 {
     public function getAll()
     {
