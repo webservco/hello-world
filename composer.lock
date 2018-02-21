@@ -1338,7 +1338,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/radu/projects/local/webservco/framework",
-                "reference": "73f345bf52ef918ab213b8393245067e573fe6a4",
+                "reference": "11ec4026d7ae10d1bba66ffef67e354ab6eb90a8",
                 "shasum": null
             },
             "require": {
