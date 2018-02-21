@@ -18,7 +18,7 @@ final class BlogController extends \Project\Controller
     
     public function posts()
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         $data['posts'] = $this->repository->getAll();
         
@@ -27,10 +27,9 @@ final class BlogController extends \Project\Controller
     
     public function post($id)
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         $data['id'] = $id;
-        $data['meta']['title'] = 'Blog post';
         
         return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }

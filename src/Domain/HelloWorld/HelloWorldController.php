@@ -17,7 +17,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function hello($json = false)
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         if ($json) {
             return $this->outputJson($data);
@@ -28,7 +28,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function helloResponse()
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         /**
          * Same thing as calling
@@ -43,7 +43,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function sessions($action = null)
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         switch ($action) {
             case 'set':
@@ -79,7 +79,7 @@ final class HelloWorldController extends \Project\Controller
     
     public function cookies($action = null)
     {
-        $data = $this->getData();
+        $data = $this->getData(__FUNCTION__);
         
         switch ($action) {
             case 'set':
