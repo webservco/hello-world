@@ -57,7 +57,7 @@ final class AppTest extends TestCase
     
     /**
     * @test
-    * @expectedException \ErrorException
+    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
     public function instantiationWithNullParameterThrowsException()
     {
@@ -66,7 +66,7 @@ final class AppTest extends TestCase
     
     /**
     * @test
-    * @expectedException \ErrorException
+    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
     public function instantiationWithEmptyParameterThrowsException()
     {
@@ -75,7 +75,7 @@ final class AppTest extends TestCase
     
     /**
     * @test
-    * @expectedException \ErrorException
+    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
     public function instantiationWithDummyParameterThrowsException()
     {
@@ -84,7 +84,7 @@ final class AppTest extends TestCase
     
     /**
     * @test
-    * @expectedException \ErrorException
+    * @expectedException \WebServCo\Framework\Exceptions\ApplicationException
     */
     public function instantiationInvalidParameterThrowsException()
     {
