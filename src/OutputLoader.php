@@ -24,12 +24,8 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
         return parent::htmlPage($data, $pageTemplate, $mainTemplate);
     }
     
-    public function json($data, $status = true)
+    public function json($data)
     {
-        $data = [
-            'status' => true,
-            'data' => $data,
-        ];
         return parent::json($data);
     }
     
