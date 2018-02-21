@@ -11,7 +11,7 @@ trait HelloWorldControllerTrait
             'app' => [
                 'url' => $this->request()->getAppUrl(),
             ],
-            'strings' => [
+            'meta' => [
                 'title' => 'Hello World!',
                 'description' => 'Sample App for the WebServCo PHP Framework',
             ]

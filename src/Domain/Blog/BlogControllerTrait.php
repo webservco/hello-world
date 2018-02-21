@@ -11,7 +11,7 @@ trait BlogControllerTrait
             'app' => [
                 'url' => $this->request()->getAppUrl(),
             ],
-            'strings' => [
+            'meta' => [
                 'title' => 'Hello Blog!',
                 'description' => 'Sample App for the WebServCo PHP Framework',
             ]

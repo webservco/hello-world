@@ -1,10 +1,10 @@
                 <section class="post">
                     <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('strings/title', 'Cookies')?></h2>
+                        <h2 class="post-title"><?=$this->data('meta/title', 'Cookies')?></h2>
                     </header>
                     <div class="post-description">
                         <p>
-                            <?=$this->data('strings/message', '')?>
+                            <?=$this->data('meta/message', '')?>
                         </p>
                     </div>
                 </section>

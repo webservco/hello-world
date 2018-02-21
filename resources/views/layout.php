@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$this->data('strings/title', 'Hello World!')?></title>
-    <meta name="description" content="<?=$this->data('strings/description', 'Sample App for the WebServCo PHP Framework')?>">
+    <title><?=$this->data('meta/title', 'Hello World!')?></title>
+    <meta name="description" content="<?=$this->data('meta/description', 'Sample App for the WebServCo PHP Framework')?>">
+    
     <base href="<?=$this->data('app/url','/')?>">
     
     <!-- https://purecss.io/layouts/blog/ -->
@@ -30,7 +31,7 @@
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             <div class="posts">
-                <h1 class="content-subhead"><?=$this->data('strings/title')?></h1>
+                <h1 class="content-subhead"><?=$this->data('meta/title')?></h1>
 <?=$this->data('tpl_content')?>
             </div>
 <?=$this->data('tpl_footer')?>            

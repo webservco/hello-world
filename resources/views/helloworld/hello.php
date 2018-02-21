@@ -1,6 +1,6 @@
                 <section class="post">
                     <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('strings/title', 'Page title')?></h2>
+                        <h2 class="post-title"><?=$this->data('meta/title', 'Page title')?></h2>
                     </header>
                     <div class="post-description">
                         <p>

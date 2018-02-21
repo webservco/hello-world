@@ -47,11 +47,11 @@ final class HelloWorldController extends \Project\Controller
         
         switch ($action) {
             case 'set':
-                $data['strings']['title'] = 'Set session value';
+                $data['meta']['title'] = 'Set session value';
                 $result = $this->session()->set(self::SESSION_KEY, 'bar');
                 break;
             case 'remove':
-                $data['strings']['title'] = 'Remove session value';
+                $data['meta']['title'] = 'Remove session value';
                 try {
                     if ($this->session()->has(self::SESSION_KEY)) {
                         $result = $this->session()->remove(self::SESSION_KEY);
@@ -65,14 +65,14 @@ final class HelloWorldController extends \Project\Controller
                 break;
             case 'get':
             default:
-                $data['strings']['title'] = 'Get session value';
+                $data['meta']['title'] = 'Get session value';
                 $result = $this->session()->get(self::SESSION_KEY);
                 break;
         }
         
         $resultString = $this->getResultString($result);
         
-        $data['strings']['message'] = sprintf('The result is: %s', $resultString);
+        $data['meta']['message'] = sprintf('The result is: %s', $resultString);
         
         return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
@@ -83,23 +83,23 @@ final class HelloWorldController extends \Project\Controller
         
         switch ($action) {
             case 'set':
-                $data['strings']['title'] = 'Set cookie';
+                $data['meta']['title'] = 'Set cookie';
                 $result = $this->cookie()->set(self::COOKIE_NAME, 'bar');
                 break;
             case 'remove':
-                $data['strings']['title'] = 'Remove cookie';
+                $data['meta']['title'] = 'Remove cookie';
                 $result = $this->cookie()->remove(self::COOKIE_NAME);
                 break;
             case 'get':
             default:
-                $data['strings']['title'] = 'Get cookie';
+                $data['meta']['title'] = 'Get cookie';
                 $result = $this->cookie()->get(self::COOKIE_NAME);
                 break;
         }
         
         $resultString = $this->getResultString($result);
         
-        $data['strings']['message'] = sprintf('The result is: %s', $resultString);
+        $data['meta']['message'] = sprintf('The result is: %s', $resultString);
         
         return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }

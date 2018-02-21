@@ -30,7 +30,7 @@ final class BlogController extends \Project\Controller
         $data = $this->getData();
         
         $data['id'] = $id;
-        $data['strings']['title'] = 'Blog post';
+        $data['meta']['title'] = 'Blog post';
         
         return $this->outputHtml($data, $this->getView(__FUNCTION__));
     }
