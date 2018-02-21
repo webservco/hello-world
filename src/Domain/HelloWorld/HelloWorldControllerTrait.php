@@ -3,7 +3,7 @@ namespace Project\Domain\HelloWorld;
 
 trait HelloWorldControllerTrait
 {
-    public function getResultString($result)
+    protected function getResultString($result)
     {
         ob_start();
         var_dump($result);
