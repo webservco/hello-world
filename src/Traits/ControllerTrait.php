@@ -12,6 +12,7 @@ trait ControllerTrait
     {
         $this->setData('path', $this->config()->get('app/path'));
         $this->setData('url/app', $this->request()->getAppUrl());
+        $this->setData('url/lang', $this->request()->getUrl(['lang']));
     }
     
     /**

@@ -7,7 +7,7 @@
     if ($code != $this->data('i18n/lang')) {
 ?>
                     <li class="pure-menu-item">
-                        <a href="?lang=<?=$code?>"><?=$item['title']?></a>
+                        <a href="<?=$this->data('url/lang')?>&amp;lang=<?=$code?>"><?=$item['title']?></a>
                     </li>
 <?php
     }
