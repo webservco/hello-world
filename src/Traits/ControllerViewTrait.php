@@ -3,16 +3,17 @@ namespace Project\Traits;
 
 trait ControllerViewTrait
 {
-    protected $viewsDir;
+    abstract public function data($key, $defaultValue = false);
+    abstract protected function setData($key, $value);
     
     protected function initViews($namespace)
     {
         $parts = explode('\\', $namespace);
-        $this->viewsDir = strtolower(end($parts));
+        $this->setData('dir/views', strtolower(end($parts)));
     }
     
     protected function getView($templateName)
     {
-        return sprintf('%s/%s', $this->viewsDir, $templateName);
+        return sprintf('%s/%s', $this->data('dir/views'), $templateName);
     }
 }

@@ -3,17 +3,26 @@ namespace Project\Traits;
 
 trait ControllerI18nTrait
 {
+    abstract protected function i18n();
     abstract protected function request();
     abstract protected function session();
+    abstract protected function setData($key, $value);
     
     protected function initI18n()
+    {
+        $this->checkLanguage();
+        $this->setData('i18n/lang', $this->i18n()->getLanguage());
+        $this->setData('i18n/langs', $this->i18n()->getLanguages());
+    }
+    
+    protected function checkLanguage()
     {
         /**
          * Get language set by session.
          */
         $lang = $this->session()->get('i18n/language');
         
-        $this->i18n()->init($this->projectPath, $lang);
+        $this->i18n()->init($this->data('path/project'), $lang);
         
         /**
          * Check switch request.
@@ -52,6 +61,6 @@ trait ControllerI18nTrait
     {
         $this->session()->set('i18n/language', $lang);
         $this->i18n()->setLanguage($lang);
-        return false;
+        return true;
     }
 }

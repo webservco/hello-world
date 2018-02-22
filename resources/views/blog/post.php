@@ -1,6 +1,6 @@
                 <section class="post">
                     <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('post/title', 'Post title')?> (ID: <?=$this->data('id', 0)?>)</h2>
+                        <h2 class="post-title"><?=$this->data('item/title', 'Post title')?> (ID: <?=$this->data('item/id', 0)?>)</h2>
                     </header>
                     <div class="post-description">
                         <p>

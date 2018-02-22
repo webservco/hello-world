@@ -3,22 +3,23 @@ namespace Project\Traits;
 
 trait ControllerTrait
 {
-    use ControllerViewTrait;
-    use ControllerI18nTrait;
-    use ControllerMetaTrait;
+    abstract public function data($key, $defaultValue = false);
+    abstract protected function initDomain();
+    abstract protected function initMeta($action);
+    abstract protected function setData($key, $value);
     
-    abstract protected function i18n();
-    abstract protected function request();
-    
-    protected function getData($action)
+    protected function initPaths()
     {
-        return [
-            'app' => [
-                'url' => $this->request()->getAppUrl(),
-            ],
-            'meta' => $this->getMeta($action),
-            'lang' => $this->i18n()->getLanguage(),
-            'langs' => $this->i18n()->getLanguages(),
-        ];
+        $this->setData('path', $this->config()->get('app/path'));
+        $this->setData('url/app', $this->request()->getAppUrl());
+    }
+    
+    /**
+     * Called (optionally) by each method.
+     */
+    protected function init($action)
+    {
+        $this->initMeta($action);
+        $this->initDomain();
     }
 }

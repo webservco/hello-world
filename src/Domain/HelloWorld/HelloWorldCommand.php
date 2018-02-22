@@ -7,11 +7,7 @@ final class HelloWorldCommand extends \Project\AbstractController
 {
     public function __construct()
     {
-        parent::__construct(
-            new \Project\OutputLoader(
-                $this->config()->get(sprintf('app%1$spath%1$sproject', S::DIVIDER))
-            )
-        );
+        parent::__construct(__NAMESPACE__);
     }
     
     public function hello($name = null)

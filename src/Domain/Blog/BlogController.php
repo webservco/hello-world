@@ -18,20 +18,20 @@ final class BlogController extends \Project\AbstractController
     
     public function posts()
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
-        $data['posts'] = $this->repository->getAll();
+        $this->setData('posts', $this->repository->getAll());
         
-        return $this->outputHtml($data, $this->getView(__FUNCTION__));
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
     
     public function post($id)
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
-        $data['id'] = $id;
+        $this->setData('item/id', $id);
         
-        return $this->outputHtml($data, $this->getView(__FUNCTION__));
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
     
     public function test()
@@ -57,7 +57,5 @@ final class BlogController extends \Project\AbstractController
         //var_dump($this->repository->test2());
         //var_dump($this->repository->test3());
         exit;
-        
-        //$data['posts'] = $this->XXX->getLatest();
     }
 }

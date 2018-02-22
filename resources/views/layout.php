@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?=$this->data('i18n/lang', 'en')?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$this->data('meta/title', 'Hello World!')?></title>
-    <meta name="description" content="<?=$this->data('meta/description', 'Sample App for the WebServCo PHP Framework')?>">
+    <title><?=$this->data('meta/title', __('Hello World!'))?></title>
+    <meta name="description" content="<?=$this->data('meta/description', __('Sample App for the WebServCo PHP Framework'))?>">
     
-    <base href="<?=$this->data('app/url','/')?>">
+    <base href="<?=$this->data('url/app','/')?>">
     
     <!-- https://purecss.io/layouts/blog/ -->
     <link rel="stylesheet" href="css/pure-min.1.0.0.css">
@@ -28,6 +28,7 @@
 <body>
 <div id="layout" class="pure-g">
 <?=$this->data('tpl_sidebar')?>
+    
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             <div class="posts">

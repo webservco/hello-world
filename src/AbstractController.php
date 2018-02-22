@@ -3,20 +3,23 @@ namespace Project;
 
 abstract class AbstractController extends \WebServCo\Framework\AbstractController
 {
-    protected $projectPath;
-    
     protected $repository;
     
+    use \Project\Traits\ControllerDomainTrait;
+    use \Project\Traits\ControllerI18nTrait;
+    use \Project\Traits\ControllerMetaDomainTrait;
+    use \Project\Traits\ControllerMetaTrait;
     use \Project\Traits\ControllerTrait;
+    use \Project\Traits\ControllerViewTrait;
     
     public function __construct($namespace)
     {
-        $this->projectPath = $this->config()->get('app/path/project');
+        $this->initPaths();
         
-        $outputLoader = new \Project\OutputLoader($this->projectPath);
+        $outputLoader = new \Project\OutputLoader($this->data('path/project'));
         parent::__construct($outputLoader);
         
-        $this->session()->start($this->projectPath . 'var/sessions');
+        $this->session()->start($this->data('path/project') . 'var/sessions');
         
         $this->initViews($namespace);
         $this->initI18n();

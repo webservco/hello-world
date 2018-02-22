@@ -17,25 +17,25 @@ final class HelloWorldController extends \Project\AbstractController
     
     public function hello($json = false)
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
         if ($json) {
-            return $this->outputJson($data);
+            return $this->outputJson($this->getData());
         } else {
-            return $this->outputHtml($data, $this->getView(__FUNCTION__));
+            return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
         }
     }
     
     public function helloResponse()
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
         /**
          * Same thing as calling
-         * return $this->outputHtml($data, 'hello');
+         * return $this->outputHtml($this->getData(), 'hello');
          */
         return new \WebServCo\Framework\Libraries\HttpResponse(
-            $this->output()->htmlPage($data, $this->getView('hello'), null),
+            $this->output()->htmlPage($this->getData(), $this->getView('hello'), null),
             200,
             ['Content-Type' => 'text/html']
         );
@@ -43,15 +43,15 @@ final class HelloWorldController extends \Project\AbstractController
     
     public function sessions($action = null)
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
         switch ($action) {
             case 'set':
-                $data['meta']['title'] = 'Set session value';
+                $this->setData('meta/title', __('Set session value'));
                 $result = $this->session()->set(self::SESSION_KEY, 'bar');
                 break;
             case 'remove':
-                $data['meta']['title'] = 'Remove session value';
+                $this->setData('meta/title', __('Remove session value'));
                 try {
                     if ($this->session()->has(self::SESSION_KEY)) {
                         $result = $this->session()->remove(self::SESSION_KEY);
@@ -65,42 +65,42 @@ final class HelloWorldController extends \Project\AbstractController
                 break;
             case 'get':
             default:
-                $data['meta']['title'] = 'Get session value';
+                $this->setData('meta/title', __('Get session value'));
                 $result = $this->session()->get(self::SESSION_KEY);
                 break;
         }
         
         $resultString = $this->getResultString($result);
         
-        $data['meta']['message'] = sprintf('The result is: %s', $resultString);
+        $this->setData('meta/message', sprintf(__('The result is: %s'), $resultString));
         
-        return $this->outputHtml($data, $this->getView(__FUNCTION__));
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
     
     public function cookies($action = null)
     {
-        $data = $this->getData(__FUNCTION__);
+        $this->init(__FUNCTION__);
         
         switch ($action) {
             case 'set':
-                $data['meta']['title'] = 'Set cookie';
+                $this->setData('meta/title', __('Set cookie'));
                 $result = $this->cookie()->set(self::COOKIE_NAME, 'bar');
                 break;
             case 'remove':
-                $data['meta']['title'] = 'Remove cookie';
+                $this->setData('meta/title', __('Remove cookie'));
                 $result = $this->cookie()->remove(self::COOKIE_NAME);
                 break;
             case 'get':
             default:
-                $data['meta']['title'] = 'Get cookie';
+                $this->setData('meta/title', __('Get cookie'));
                 $result = $this->cookie()->get(self::COOKIE_NAME);
                 break;
         }
         
         $resultString = $this->getResultString($result);
         
-        $data['meta']['message'] = sprintf('The result is: %s', $resultString);
+        $this->setData('meta/message', sprintf(__('The result is: %s'), $resultString));
         
-        return $this->outputHtml($data, $this->getView(__FUNCTION__));
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
 }
