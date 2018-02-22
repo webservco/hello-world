@@ -9,20 +9,20 @@
     <base href="<?=$this->data('url/app','/')?>">
     
     <!-- https://purecss.io/layouts/blog/ -->
-    <link rel="stylesheet" href="css/pure-min.1.0.0.css">
+    <link rel="stylesheet" href="assets/css/pure-min.1.0.0.css">
     
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/pure-grids-responsive-old-ie-min.1.0.0.css">
+        <link rel="stylesheet" href="assets/css/pure-grids-responsive-old-ie-min.1.0.0.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/pure-grids-responsive-min.1.0.0.css">
+        <link rel="stylesheet" href="assets/css/pure-grids-responsive-min.1.0.0.css">
     <!--<![endif]-->
     
     <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/style-old-ie.css">
+            <link rel="stylesheet" href="assets/css/style-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css">
     <!--<![endif]-->
 </head>
 <body>

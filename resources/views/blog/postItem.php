@@ -1,6 +1,6 @@
                 <section class="post">
                     <header class="post-header">
-                        <img width="48" height="48" alt="Avatar" class="post-avatar" src="img/tape.png">
+                        <img width="48" height="48" alt="Avatar" class="post-avatar" src="assets/img/tape.png">
                         <h2 class="post-title"><?=$this->data('title','{TITLE}')?></h2>
                         <p class="post-meta">
                             Tags:
