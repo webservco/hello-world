@@ -1,7 +1,7 @@
 <?php
 
 return [
-    /*
+    /**
      * Session expire time in seconds.
      * Default 60 * 60 * 24 * 30 (30 days)
      */
@@ -30,4 +30,8 @@ return [
          */
         'httponly' => true,
     ],
+    /**
+     * Stop execution if unable to set custom storage path.
+     */
+    'strict_custom_path' => true,
 ];
