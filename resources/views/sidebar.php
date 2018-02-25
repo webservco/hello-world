@@ -18,7 +18,7 @@
         </div>
             
         <div class="header">
-            <h1 class="brand-title"><?__('Hello World!')?></h1>
+            <h1 class="brand-title"><?=__('Hello World!')?></h1>
             <h2 class="brand-tagline"><?=__('Sample App for the WebServCo PHP Framework')?></h2>
             
             <nav class="nav">

@@ -3,7 +3,6 @@
                         <h2 class="post-title"><?=$this->data('meta/title', __('Page title'))?></h2>
                     </header>
                     <div class="post-description">
-                        <p>
                             <h3>General</h3>
                             <ul>
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/hello">HTML: /HelloWorld/hello</a></li>
@@ -12,7 +11,7 @@
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/hello/1">JSON: /HelloWorld/hello/1</a></li>
                                 <li><a href="<?=$this->data('url/app','/')?>json">JSON: /json</a></li>
                             </ul>
-                            <h3>CLI<h3>
+                            <h3>CLI</h3>
                             <ul>
                                 <li>CLI: php public/index.php</li>
                                 <li>CLI: bin/cli hi</li>
@@ -30,7 +29,5 @@
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/get">HelloWorld/cookies/get</a></li>
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/remove">HelloWorld/cookies/remove</a></li>
                             </ul>
-                            
-                        </p>
                     </div>
                 </section>
