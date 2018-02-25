@@ -1,8 +1,6 @@
 <?php
 namespace Project\Domain\HelloWorld;
 
-use WebServCo\Framework\Settings as S;
-
 final class HelloWorldController extends \Project\AbstractController
 {
     const SESSION_KEY = 'foo';

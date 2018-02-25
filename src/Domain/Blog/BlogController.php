@@ -1,8 +1,6 @@
 <?php
 namespace Project\Domain\Blog;
 
-use WebServCo\Framework\Settings as S;
-
 final class BlogController extends \Project\AbstractController
 {
     protected $repository;
