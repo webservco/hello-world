@@ -16,6 +16,10 @@ final class UserController extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
         
+        $form = new UserLoginForm();
+        
+        $this->setData('form', $form->toArray());
+        
         return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
 }

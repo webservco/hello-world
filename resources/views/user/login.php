@@ -1,30 +1,40 @@
-                <section class="post">
-                    <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('meta/title', __('Sign in'))?></h2>
-                    </header>
-                    <div class="post-description">
-                        <form class="pure-form pure-form-aligned">
-                            <fieldset>
-                                <div class="pure-control-group">
-                                    <label for="email"><?=__('Email Address')?></label>
-                                    <input id="email" type="text" placeholder="<?=__('Email Address')?>">
-                                    <span class="pure-form-message-inline"><?=__('required')?></span>
-                                </div>
-                                <div class="pure-control-group">
-                                    <label for="password"><?=__('Password')?></label>
-                                    <input id="password" type="password" placeholder="<?=__('Password')?>">
-                                    <span class="pure-form-message-inline"><?=__('required')?></span>
-                                </div>
-                                
-                                <div class="pure-controls">
-                                    <label for="remember" class="pure-checkbox">
-                                        <input id="remember" type="checkbox"> <?=__('Remember me')?>
-                                    </label>
-                                    
-                                    <button type="submit" class="pure-button pure-button-primary"><?=__('Sign in')?></button>
-                                </div>
-                                
-                            </fieldset>
-                        </form>
+        <div class="container">
+            <div class="content">
+                
+                <h1><?=$this->data('meta/title', __('Sign in'))?></h1>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="email"><?=$this->data('form/meta/email')?></label>
+                        <input type="email" class="form-control<?=$this->data('form/errors/email')?' is-invalid':''?>" id="email" name="email" placeholder="<?=$this->data('form/meta/email')?>" aria-describedby="emailHelp"<?=$this->data('form/required/email')?' required':''?>>
+                        <?php if ($this->data('form/help/email')) { ?>
+                        <small id="emailHelp" class="form-text text-muted"><?=$this->data('form/help/email')?></small>
+                        <?php } ?>
+                        <?php if ($this->data('form/errors/email')) { ?>
+                        <div class="invalid-feedback"><?=implode('<br>', $this->data('form/errors/email'))?></div>
+                        <?php } ?>
                     </div>
-                </section>
+                    <div class="form-group">
+                        <label for="password"><?=$this->data('form/meta/password')?></label>
+                        <input type="password" class="form-control<?=$this->data('form/errors/password')?' is-invalid':''?>" id="password" name="password" placeholder="<?=$this->data('form/meta/password')?>"<?=$this->data('form/required/password')?' required':''?>>
+                        <?php if ($this->data('form/help/password')) { ?>
+                        <small id="emailHelp" class="form-text text-muted"><?=$this->data('form/help/password')?></small>
+                        <?php } ?>
+                        <?php if ($this->data('form/errors/password')) { ?>
+                        <div class="invalid-feedback"><?=implode('<br>', $this->data('form/errors/password'))?></div>
+                        <?php } ?>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                            <label for="remember" class="form-check-label"><?=$this->data('form/meta/remember')?></label>
+                            <?php if ($this->data('form/help/remember')) { ?>
+                            <small id="emailHelp" class="form-text text-muted"><?=$this->data('form/help/remember')?></small>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary"><?=__('Sign in')?></button>
+                </form>
+                
+            </div><?php //content ?>
+        </div><?php //container ?>
