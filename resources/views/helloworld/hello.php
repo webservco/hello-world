@@ -1,8 +1,7 @@
-                <section class="post">
-                    <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('meta/title', __('Page title'))?></h2>
-                    </header>
-                    <div class="post-description">
+    <div class="container">
+        <div class="content">
+            <h1><?=$this->data('meta/title', __('Page title'))?></h1>
+            
                             <h3>General</h3>
                             <ul>
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/hello">HTML: /HelloWorld/hello</a></li>
@@ -29,5 +28,6 @@
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/get">HelloWorld/cookies/get</a></li>
                                 <li><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/remove">HelloWorld/cookies/remove</a></li>
                             </ul>
-                    </div>
-                </section>
+                
+        </div><?php //content ?>
+    </div><?php //container ?>

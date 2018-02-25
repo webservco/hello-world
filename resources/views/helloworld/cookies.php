@@ -1,19 +1,16 @@
-                <section class="post">
-                    <header class="post-header">
-                        <h2 class="post-title"><?=$this->data('meta/title', __('Cookies'))?></h2>
-                    </header>
-                    <div class="post-description">
-                        <p>
-                            <?=$this->data('meta/message', '')?>
-                        </p>
-                    </div>
-                </section>
-                <section class="post">
-                    <div class="pure-menu pure-menu-horizontal">
-                        <ul>
-                            <li class="pure-menu-item"><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/set" class="pure-menu-link">HelloWorld/cookies/set</a></li>
-                            <li class="pure-menu-item"><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/get" class="pure-menu-link">HelloWorld/cookies/get</a></li>
-                            <li class="pure-menu-item"><a href="<?=$this->data('url/app','/')?>HelloWorld/cookies/remove" class="pure-menu-link">HelloWorld/cookies/remove</a></li>
-                        </ul>
-                    </div>
-                </section>
+    <div class="container">
+        <div class="content">
+            
+            <h1><?=$this->data('meta/title', __('Cookies'))?></h1>
+            <p>
+                <?=$this->data('meta/message', '')?>
+            </p>
+            
+            <div class="btn-group" role="group" aria-label="<?=__('Actions')?>">
+                <a class="btn btn-light" href="<?=$this->data('url/app','/')?>HelloWorld/cookies/set" title="HelloWorld/cookies/set">HelloWorld/cookies/set</a>
+                <a class="btn btn-light" href="<?=$this->data('url/app','/')?>HelloWorld/cookies/get" title="HelloWorld/cookies/getHelloWorld/cookies/get">HelloWorld/cookies/get</a>
+                <a class="btn btn-light" href="" title="<?=$this->data('url/app','/')?>HelloWorld/cookies/remove" title="HelloWorld/cookies/remove">HelloWorld/cookies/remove</a>
+            </div>
+            
+        </div><?php //content ?>
+    </div><?php //container ?>

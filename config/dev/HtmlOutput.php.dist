@@ -8,5 +8,5 @@ return [
     /**
      * List of partial templates to load.
      */
-    'partials' => ['sidebar','footer'],
+    'partials' => ['header','footer', 'scripts'],
 ];

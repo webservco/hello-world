@@ -2,42 +2,24 @@
 <html lang="<?=$this->data('i18n/lang', 'en')?>">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <title><?=$this->data('meta/title', __('Hello World!'))?></title>
     <meta name="description" content="<?=$this->data('meta/description', __('Sample App for the WebServCo PHP Framework'))?>">
     
     <base href="<?=$this->data('url/app','/')?>">
     
-    <!-- https://purecss.io/layouts/blog/ -->
-    <link rel="stylesheet" href="assets/css/pure-min.1.0.0.css">
-    
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="assets/css/pure-grids-responsive-old-ie-min.1.0.0.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="assets/css/pure-grids-responsive-min.1.0.0.css">
-    <!--<![endif]-->
-    
-    <!--[if lte IE 8]>
-            <link rel="stylesheet" href="assets/css/style-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="assets/css/style.css">
-    <!--<![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<div id="layout" class="pure-g">
-<?=$this->data('tpl_sidebar')?>
+<?=$this->data('tpl_header')?>
     
-    <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
-            <div class="posts">
-                <h1 class="content-subhead"><?=$this->data('meta/title')?></h1>
+    <main role="main">
 <?=$this->data('tpl_content')?>
-            </div>
-<?=$this->data('tpl_footer')?>            
-        </div>
-    </div>
-</div>    
+    </main>
+    
+<?=$this->data('tpl_footer')?>
+<?=$this->data('tpl_scripts')?>
 </body>
 </html>
