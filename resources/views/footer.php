@@ -1,3 +1,3 @@
     <footer class="container">
-    &copy; etc
+    &copy;
     </footer>    

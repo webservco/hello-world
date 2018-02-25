@@ -16,7 +16,9 @@
 <?=$this->data('tpl_header')?>
     
     <main role="main">
+
 <?=$this->data('tpl_content')?>
+    
     </main>
     
 <?=$this->data('tpl_footer')?>
