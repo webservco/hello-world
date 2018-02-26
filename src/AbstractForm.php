@@ -3,7 +3,7 @@ namespace Project;
 
 abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
 {
-    use \Project\Traits\RepositoryDatabaseTrait;
+    use \Project\Traits\DatabaseTrait;
     
     protected function filter()
     {

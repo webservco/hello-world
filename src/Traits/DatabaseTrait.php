@@ -1,7 +1,7 @@
 <?php
 namespace Project\Traits;
 
-trait RepositoryDatabaseTrait
+trait DatabaseTrait
 {
     final protected function db()
     {
