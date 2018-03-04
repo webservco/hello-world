@@ -23,15 +23,29 @@ final class UserController extends \Project\AbstractController
         $form = new UserLoginForm();
 
         if ($form->isSent() && $form->isValid()) {
+            $this->session()->regenerate();
             $this->session()->set('user/id', $this->user()->data('info/id'));
             $this->session()->set('user/info', $this->user()->data('info'));
 
             return $this->redirect('me', true /* addSuffix*/);
         }
 
+        if ($form->isSent() && !$form->isValid()) {
+            $this->session()->regenerate();
+        }
+
         $this->setData('form', $form->toArray());
 
         return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
+    }
+
+    public function logout()
+    {
+        $this->init(__FUNCTION__);
+
+        $this->session()->destroy();
+
+        return $this->redirect('User/login', true /* addSuffix*/);
     }
 
     public function account()
