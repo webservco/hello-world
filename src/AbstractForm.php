@@ -4,7 +4,8 @@ namespace Project;
 abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
 {
     use \Project\Traits\DatabaseTrait;
-    
+    use \Project\Traits\ExposeLibrariesTrait;
+
     protected function filter()
     {
         foreach ($this->setting('trim', []) as $item) {
@@ -12,7 +13,7 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
         }
         return true;
     }
-    
+
     protected function validate()
     {
         foreach ($this->setting('required', []) as $item) {
