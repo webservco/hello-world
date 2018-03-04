@@ -1,5 +1,5 @@
 <?php
-namespace Project;
+namespace Project\Libraries;
 
 final class User extends \WebServCo\Framework\AbstractUser
 {
