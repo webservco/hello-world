@@ -19,7 +19,7 @@ final class User extends \WebServCo\Framework\AbstractUser
         $hash = $this->getHash($email, $password);
 
         $info = $this->db()->getRow(
-            "SELECT id, email, status, level FROM acl_users WHERE email = ? AND hash = ? LIMIT 1",
+            "SELECT id, `name`, email, status, level FROM acl_users WHERE email = ? AND hash = ? LIMIT 1",
             [$email, $hash]
         );
 
