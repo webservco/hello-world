@@ -19,8 +19,10 @@ final class UserController extends \Project\AbstractController
         $form = new UserLoginForm();
 
         if ($form->isSent() && $form->isValid()) {
-            //var_dump($form->toArray()); //XXX
-            echo 'NOWHAT';
+            var_dump(
+                $this->user()->getData()
+                //$this->user()->data('info', [])
+            );
             return; //XXX
         }
 
