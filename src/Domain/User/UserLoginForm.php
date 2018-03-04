@@ -27,15 +27,40 @@ final class UserLoginForm extends \Project\AbstractForm
             $defaultData
         );
     }
-    
+
     protected function validate()
     {
         parent::validate();
-        
+
         if (!empty($this->errors)) {
             return false;
         }
-        
+
+        $user = new \Project\User();
+
+        $result = $user->login(
+            $this->data('email'),
+            $this->data('password'),
+            $this->data('remember')
+        );
+
+        if (!$result) {
+            $error = $user->data('error');
+            switch ($error) {
+                case $user::ERR_DISABLED:
+                    $this->errors['email'][] = __('This account is disabled');
+                    break;
+                case $user::ERR_LOGIN:
+                default:
+                    $this->errors['email'][] = __('Login error, please check credentials');
+                    break;
+            }
+        }
+
+        if (!empty($this->errors)) {
+            return false;
+        }
+
         return true;
     }
 }
