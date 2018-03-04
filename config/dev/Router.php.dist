@@ -11,10 +11,23 @@ return [
      * Do not add the dummy extension here.
      */
     'routes' => [
+        /**
+         * HelloWorld
+         */
         'hi' => 'HelloWorld/hello', /* Both HTTP and CLI */
         'json' => 'HelloWorld/hello/1',
+        /**
+         * Blog
+         */
         'blog' => 'Blog/posts',
         'blog/({any})/({num})' => 'Blog/post/$2',
+        /**
+         * User
+         */
+         'me' => 'User/account',
+         /**
+          * Examples
+          */
         'foo.html' => 'ControllerName/methodName/arg1/arg2?key=value&another_key=another_value',
         'foo/({any})/({num})' => 'ControllerName/methodName?id=$2&string=$1',
         'qwerty' => 'Content/debugSomething/foo/bar',
