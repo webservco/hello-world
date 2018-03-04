@@ -5,16 +5,19 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbars">
-            
+
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<?=$this->data('url/app','/')?>"><?=__('Home')?> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=$this->data('url/app','/')?>blog"><?=__('Blog')?></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?=$this->data('url/app','/')?>me"><?=__('User')?></a>
+                </li>
             </ul>
-            
+
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="i18n" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">I18n</a>
@@ -32,7 +35,7 @@
                 <li class="nav-item">
                     <a class="btn btn-outline-success my-2 my-sm-0" href="https://github.com/webservco/hello-world">Github</a>
                 </li>
-            </ul>    
-            
+            </ul>
+
         </div><?php //navbars ?>
     </nav>
