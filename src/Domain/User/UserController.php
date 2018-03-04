@@ -5,6 +5,8 @@ final class UserController extends \Project\AbstractController
 {
     protected $repository;
 
+    use UserControllerTrait;
+
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);
@@ -33,10 +35,7 @@ final class UserController extends \Project\AbstractController
                 $form->data('password'),
                 true /* remember */
             );
-            $this->session()->regenerate();
-            $this->session()->set('user/id', $this->user()->data('info/id'));
-            $this->session()->set('user/info', $this->user()->data('info'));
-            return $this->redirect('me', true /* addSuffix*/);
+            return $this->userLoginRedirect();
         }
 
         $this->setData('form', $form->toArray());
@@ -55,11 +54,7 @@ final class UserController extends \Project\AbstractController
         $form = new UserLoginForm();
 
         if ($form->isSent() && $form->isValid()) {
-            $this->session()->regenerate();
-            $this->session()->set('user/id', $this->user()->data('info/id'));
-            $this->session()->set('user/info', $this->user()->data('info'));
-
-            return $this->redirect('me', true /* addSuffix*/);
+            return $this->userLoginRedirect();
         }
 
         if ($form->isSent() && !$form->isValid()) {
