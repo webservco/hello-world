@@ -1,7 +1,7 @@
         <div class="container">
             <div class="content">
 
-                <h1><?=$this->data('meta/title', __('Sign in'))?></h1>
+                <h1><?=__('Sign In')?></h1>
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="email"><?=$this->data('form/meta/email')?></label>
@@ -40,7 +40,14 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary"><?=__('Sign in')?></button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><?=__('Sign in')?></button>
+                    </div>
+
+                    <div class="form-group">
+                        <?=__('Don\'t have an account?')?>
+                        <a href="<?=$this->data('url/app','/')?>User/register"><?=__('Sign up')?></a>
+                    </div>
                 </form>
 
             </div><?php //content ?>
