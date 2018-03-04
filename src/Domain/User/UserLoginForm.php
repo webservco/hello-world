@@ -12,9 +12,7 @@ final class UserLoginForm extends \Project\AbstractForm
                     'password' => __('Password'),
                     'remember' => __('Remember me'),
                 ],
-                'help' => [
-                    'email' => __('We\'ll never share your email with anyone else.'),
-                ],
+                'help' => [],
                 'required' => [
                     'email',
                     'password',
@@ -31,6 +29,14 @@ final class UserLoginForm extends \Project\AbstractForm
     protected function validate()
     {
         parent::validate();
+
+        if (!empty($this->errors)) {
+            return false;
+        }
+
+        if (!filter_var($this->data('email'), \FILTER_VALIDATE_EMAIL)) {
+            $this->errors['email'][] = __('Email is not valid');
+        }
 
         if (!empty($this->errors)) {
             return false;
