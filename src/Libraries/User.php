@@ -14,6 +14,11 @@ final class User extends \WebServCo\Framework\AbstractUser
         );
     }
 
+    public function emailExists($email)
+    {
+        return $this->db()->valueExists('acl_users', 'email', $email);
+    }
+
     public function login($email, $password, $remember)
     {
         $hash = $this->getHash($email, $password);
@@ -36,5 +41,22 @@ final class User extends \WebServCo\Framework\AbstractUser
         $this->setData('info', $info);
 
         return true;
+    }
+
+    public function add($name, $email, $password)
+    {
+        $hash = $this->getHash($email, $password);
+
+        $this->db()->insert(
+            'acl_users',
+            [
+                'name' => $name,
+                'email' => $email,
+                'hash' => $hash,
+                'status' => 1,
+                'level' => 0,
+            ]
+        );
+        return $this->db()->lastInsertId();
     }
 }

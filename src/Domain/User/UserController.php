@@ -12,6 +12,38 @@ final class UserController extends \Project\AbstractController
         $this->repository = new UserRepository($this->outputLoader);
     }
 
+    public function register()
+    {
+        $this->init(__FUNCTION__);
+
+        if ($this->session()->get('user/id')) {
+            return $this->redirect('me', true /* addSuffix*/);
+        }
+
+        $form = new UserRegisterForm();
+
+        if ($form->isSent() && $form->isValid()) {
+            $userId = $this->user()->add(
+                $form->data('name'),
+                $form->data('email'),
+                $form->data('password')
+            );
+            $this->user()->login(
+                $form->data('email'),
+                $form->data('password'),
+                true /* remember */
+            );
+            $this->session()->regenerate();
+            $this->session()->set('user/id', $this->user()->data('info/id'));
+            $this->session()->set('user/info', $this->user()->data('info'));
+            return $this->redirect('me', true /* addSuffix*/);
+        }
+
+        $this->setData('form', $form->toArray());
+
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
+    }
+
     public function login()
     {
         $this->init(__FUNCTION__);
