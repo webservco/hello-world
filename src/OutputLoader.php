@@ -9,26 +9,26 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
     {
         parent::__construct(
             $projectPath,
-            Fw::getLibrary('HtmlOutput'),
-            Fw::getLibrary('JsonOutput')
+            Fw::library('HtmlOutput'),
+            Fw::library('JsonOutput')
         );
     }
-    
+
     public function html($data, $template)
     {
         return parent::html($data, $template);
     }
-    
+
     public function htmlPage($data, $pageTemplate, $mainTemplate = null)
     {
         return parent::htmlPage($data, $pageTemplate, $mainTemplate);
     }
-    
+
     public function json($data)
     {
         return parent::json($data);
     }
-    
+
     public function cli($string, $eol = true)
     {
         return parent::cli($string, $eol);

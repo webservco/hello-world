@@ -7,10 +7,10 @@ trait DatabaseTrait
     {
         return $this->pdoDb();
     }
-    
+
     final protected function extraDb()
     {
-        return \WebServCo\Framework\Framework::getLibrary(
+        return \WebServCo\Framework\Framework::library(
             'PdoDatabase', //className
             'ExtraPdoDatabase', //storageKey
             'extraDatabase' //configName
