@@ -16,17 +16,33 @@ final class UserController extends \Project\AbstractController
     {
         $this->init(__FUNCTION__);
 
+        if ($this->session()->get('user/id')) {
+            return $this->redirect('me', true /* addSuffix*/);
+        }
+
         $form = new UserLoginForm();
 
         if ($form->isSent() && $form->isValid()) {
-            var_dump(
-                $this->user()->getData()
-                //$this->user()->data('info', [])
-            );
-            return; //XXX
+            $this->session()->set('user/id', $this->user()->data('info/id'));
+            $this->session()->set('user/info', $this->user()->data('info'));
+
+            return $this->redirect('me', true /* addSuffix*/);
         }
 
         $this->setData('form', $form->toArray());
+
+        return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
+    }
+
+    public function account()
+    {
+        $this->init(__FUNCTION__);
+
+        if (!$this->session()->get('user/id')) {
+            return $this->redirect('User/login', true /* addSuffix*/);
+        }
+
+        $this->setData('user/name', $this->session()->get('user/info/name'));
 
         return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
