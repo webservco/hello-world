@@ -9,11 +9,11 @@ final class HelloWorldCommand extends \Project\AbstractController
     {
         parent::__construct(__NAMESPACE__);
     }
-    
+
     public function hello($name = null)
     {
         $this->outputCli("Hello ", false);
         $this->outputCli(isset($name) ? $name : 'World');
-        return new \WebServCo\Framework\Libraries\CliResponse();
+        return new \WebServCo\Framework\CliResponse();
     }
 }

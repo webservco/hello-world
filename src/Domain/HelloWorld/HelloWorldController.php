@@ -5,44 +5,44 @@ final class HelloWorldController extends \Project\AbstractController
 {
     const SESSION_KEY = 'foo';
     const COOKIE_NAME = 'foo';
-    
+
     use HelloWorldControllerTrait;
-    
+
     public function __construct()
     {
         parent::__construct(__NAMESPACE__);
     }
-    
+
     public function hello($json = false)
     {
         $this->init(__FUNCTION__);
-        
+
         if ($json) {
             return $this->outputJson($this->getData());
         } else {
             return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
         }
     }
-    
+
     public function helloResponse()
     {
         $this->init(__FUNCTION__);
-        
+
         /**
          * Same thing as calling
          * return $this->outputHtml($this->getData(), 'hello');
          */
-        return new \WebServCo\Framework\Libraries\HttpResponse(
+        return new \WebServCo\Framework\HttpResponse(
             $this->output()->htmlPage($this->getData(), $this->getView('hello'), null),
             200,
             ['Content-Type' => 'text/html']
         );
     }
-    
+
     public function sessions($action = null)
     {
         $this->init(__FUNCTION__);
-        
+
         switch ($action) {
             case 'set':
                 $this->setData('meta/title', __('Set session value'));
@@ -59,7 +59,7 @@ final class HelloWorldController extends \Project\AbstractController
                 } catch (\WebServCo\Framework\Exceptions\ArrayStorageException $e) {
                     $result = $e->getMessage();
                 }
-                
+
                 break;
             case 'get':
             default:
@@ -67,18 +67,18 @@ final class HelloWorldController extends \Project\AbstractController
                 $result = $this->session()->get(self::SESSION_KEY);
                 break;
         }
-        
+
         $resultString = $this->getResultString($result);
-        
+
         $this->setData('meta/message', sprintf(__('The result is: %s'), $resultString));
-        
+
         return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
-    
+
     public function cookies($action = null)
     {
         $this->init(__FUNCTION__);
-        
+
         switch ($action) {
             case 'set':
                 $this->setData('meta/title', __('Set cookie'));
@@ -94,11 +94,11 @@ final class HelloWorldController extends \Project\AbstractController
                 $result = $this->cookie()->get(self::COOKIE_NAME);
                 break;
         }
-        
+
         $resultString = $this->getResultString($result);
-        
+
         $this->setData('meta/message', sprintf(__('The result is: %s'), $resultString));
-        
+
         return $this->outputHtml($this->getData(), $this->getView(__FUNCTION__));
     }
 }
