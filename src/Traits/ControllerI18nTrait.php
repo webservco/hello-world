@@ -27,8 +27,9 @@ trait ControllerI18nTrait
         /**
          * Check switch request.
          */
-        if (!empty($this->request()->query('lang'))) {
-            return $this->setLanguage($this->request()->query('lang'));
+        $requestLang = $this->request()->query('lang');
+        if (!empty($requestLang)) {
+            return $this->setLanguage($requestLang);
         }
 
         /**
