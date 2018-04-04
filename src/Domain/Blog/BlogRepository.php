@@ -7,7 +7,7 @@ final class BlogRepository extends \Project\AbstractRepository
     {
         $posts = [];
         switch (true) {
-            case $this->db() instanceof \WebServCo\Framework\Libraries\PdoDatabase:
+            case $this->db() instanceof \WebServCo\Framework\Libraries\MysqlPdoDatabase:
                 $posts = $this->getAllPdo();
                 break;
             case $this->db() instanceof \WebServCo\Framework\Libraries\MysqliDatabase:
@@ -23,7 +23,7 @@ final class BlogRepository extends \Project\AbstractRepository
     {
         $posts = [];
         $query = "SELECT id, title, content FROM blog_posts WHERE 1 ORDER BY id DESC";
-        $stmt = $this->pdoDb()->query($query);
+        $stmt = $this->mysqlPdoDb()->query($query);
         while ($post = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             $post['html'] = $this->output()->html($post, 'blog/postItem');
             $posts[] = $post;
