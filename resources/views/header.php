@@ -1,6 +1,6 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="<?=$this->data('url/app','/')?>"><?=__('Hello World!')?></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="<?__('Toggle navigation')?>">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="<?=__('Toggle navigation')?>">
             <span class="navbar-toggler-icon"></span>
         </button>
 
