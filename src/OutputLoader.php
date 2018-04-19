@@ -1,7 +1,7 @@
 <?php
 namespace Project;
 
-use WebServCo\Framework\Framework as Fw;
+use WebServCo\Framework\Framework;
 
 final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
 {
@@ -9,8 +9,8 @@ final class OutputLoader extends \WebServCo\Framework\AbstractOutputLoader
     {
         parent::__construct(
             $projectPath,
-            Fw::library('HtmlOutput'),
-            Fw::library('JsonOutput')
+            Framework::library('HtmlOutput'),
+            Framework::library('JsonOutput')
         );
     }
 

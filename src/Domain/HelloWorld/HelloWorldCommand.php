@@ -1,8 +1,6 @@
 <?php
 namespace Project\Domain\HelloWorld;
 
-use WebServCo\Framework\Settings as S;
-
 final class HelloWorldCommand extends \Project\AbstractController
 {
     public function __construct()
