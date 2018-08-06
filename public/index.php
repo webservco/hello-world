@@ -7,6 +7,11 @@ require __DIR__ . '/../vendor/autoload.php';
  * Parameter is the web accessible project directory path
  * (if missing trailing slash will be added during processing).
  */
-$app = new \Project\App(__DIR__);
-$app->start();
-$app->run();
+try {
+    $app = new \Project\App(__DIR__);
+    $app->start();
+    $app->run();
+} catch (WebServCo\Framework\Exceptions\ApplicationException $e) {
+    echo $e->getMessage();
+    exit;
+}
