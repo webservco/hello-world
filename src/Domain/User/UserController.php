@@ -19,7 +19,7 @@ final class UserController extends \Project\AbstractController
         $this->init(__FUNCTION__);
 
         if ($this->session()->get('user/id')) {
-            return $this->redirect('me', true /* addSuffix*/);
+            return $this->getRedirectResponse('me', true /* addSuffix*/);
         }
 
         $form = new UserRegisterForm();
@@ -48,7 +48,7 @@ final class UserController extends \Project\AbstractController
         $this->init(__FUNCTION__);
 
         if ($this->session()->get('user/id')) {
-            return $this->redirect('me', true /* addSuffix*/);
+            return $this->getRedirectResponse('me', true /* addSuffix*/);
         }
 
         $form = new UserLoginForm();
@@ -72,7 +72,7 @@ final class UserController extends \Project\AbstractController
 
         $this->session()->destroy();
 
-        return $this->redirect('User/login', true /* addSuffix*/);
+        return $this->getRedirectResponse('User/login', true /* addSuffix*/);
     }
 
     public function account()
@@ -80,7 +80,7 @@ final class UserController extends \Project\AbstractController
         $this->init(__FUNCTION__);
 
         if (!$this->session()->get('user/id')) {
-            return $this->redirect('User/login', true /* addSuffix*/);
+            return $this->getRedirectResponse('User/login', true /* addSuffix*/);
         }
 
         $this->setData('user/name', $this->session()->get('user/info/name'));
