@@ -10,9 +10,9 @@ trait ControllerI18nTrait
 
     protected function initI18n()
     {
+        $this->setData('i18n/langs', $this->i18n()->getLanguages());
         $this->checkLanguage();
         $this->setData('i18n/lang', $this->i18n()->getLanguage());
-        $this->setData('i18n/langs', $this->i18n()->getLanguages());
     }
 
     protected function checkLanguage()
@@ -48,7 +48,7 @@ trait ControllerI18nTrait
          * Check browser accept language.
          */
         $acceptLanguage = $this->request()->getAcceptLanguage();
-        if (!empty($acceptLanguage)) {
+        if (!empty($acceptLanguage) && array_key_exists($acceptLanguage, $this->data('i18n/langs'))) {
             $lang = $acceptLanguage;
         }
 
