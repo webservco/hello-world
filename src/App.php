@@ -11,7 +11,7 @@ final class App extends \WebServCo\Framework\Application
          */
         $pathProject = $pathProject ?: realpath($pathPublic . '/..');
 
-        parent::__construct($pathPublic, $pathProject);
+        parent::__construct($pathPublic, $pathProject, __NAMESPACE__);
     }
 
     /**
