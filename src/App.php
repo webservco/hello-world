@@ -9,8 +9,8 @@ final class App extends \WebServCo\Framework\Application
          * Project can be located in a completely different place
          * than the web directory.
          */
-        $pathProject = $pathProject ?: realpath(__DIR__ . '/..');
-        
+        $pathProject = $pathProject ?: realpath($pathPublic . '/..');
+
         parent::__construct($pathPublic, $pathProject);
     }
 
