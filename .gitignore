@@ -10,8 +10,9 @@ vendor/
 config/dev/Date.php
 config/dev/extraDatabase.php
 config/dev/HtmlOutput.php
+config/dev/I18n.php
 config/dev/MysqliDatabase.php
-config/dev/PdoDatabase.php
+config/dev/MysqlPdoDatabase.php
 config/dev/Request.php
 config/dev/Router.php
 config/dev/Session.php
