@@ -32,7 +32,7 @@ final class HelloWorldController extends \Project\AbstractController
          * Same thing as calling
          * return $this->outputHtml($this->getData(), 'hello');
          */
-        return new \WebServCo\Framework\HttpResponse(
+        return new \WebServCo\Framework\Http\Response(
             $this->output()->htmlPage($this->getData(), $this->getView('hello'), null),
             200,
             ['Content-Type' => 'text/html']
