@@ -12,6 +12,6 @@ final class HelloWorldCommand extends \Project\AbstractController
     {
         $this->outputCli("Hello ", false);
         $this->outputCli(isset($name) ? $name : 'World');
-        return new \WebServCo\Framework\CliResponse();
+        return new \WebServCo\Framework\Cli\Response();
     }
 }
