@@ -40,7 +40,7 @@ trait ControllerI18nTrait
         }
 
         /**
-         * Default if not previously set.
+         * Default  (from config file) if not previously set.
          */
         $lang = $this->i18n()->getLanguage();
 
