@@ -1,8 +1,11 @@
 <?php
 namespace Project;
 
-final class App extends \WebServCo\Framework\Application
+final class App extends \WebServCo\Framework\App
 {
+    /*
+    * Needs to be inside the project becasue of the __NAMESPACE__ usage.
+    */
     public function __construct($pathPublic, $pathProject = null)
     {
         /**
@@ -12,21 +15,7 @@ final class App extends \WebServCo\Framework\Application
         $pathProject = $pathProject ?: realpath($pathPublic . '/..');
 
         parent::__construct($pathPublic, $pathProject, __NAMESPACE__);
-    }
 
-    /**
-     * Handle HTTP errors.
-     */
-    protected function haltHttp($errorInfo = [])
-    {
-        return parent::haltHttp($errorInfo);
-    }
-
-    /**
-     * Handle CLI errors
-     */
-    protected function haltCli($errorInfo = [])
-    {
-        return parent::haltCli($errorInfo);
+        $this->config()->set('app/path/log', sprintf('%svar/log/', $this->projectPath));
     }
 }
