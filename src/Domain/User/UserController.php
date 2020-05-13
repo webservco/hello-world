@@ -1,6 +1,12 @@
 <?php
 namespace Project\Domain\User;
 
+/*
+IMPORTANT:
+This system is deprecated.
+TODO: implement User system from Ingraduland.
+*/
+
 final class UserController extends \Project\AbstractController
 {
     protected $repository;
