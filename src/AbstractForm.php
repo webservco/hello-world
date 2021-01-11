@@ -21,5 +21,10 @@ abstract class AbstractForm extends \WebServCo\Framework\AbstractForm
                 $this->errors[$item][] = sprintf(__('This field is mandatory: %s'), $this->setting('meta/'.$item));
             }
         }
+        if (!empty($this->errors)) {
+            return false;
+        }
+
+        return true;
     }
 }

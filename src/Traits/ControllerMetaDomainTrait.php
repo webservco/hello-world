@@ -8,16 +8,13 @@ trait ControllerMetaDomainTrait
         switch ($action) {
             case 'posts':
                 return $this->getBlogPostsMeta();
-                break;
             case 'post':
                 return $this->getBlogPostMeta();
-                break;
             default:
                 return $this->getDefaultMeta();
-                break;
         }
     }
-    
+
     protected function getDefaultMeta()
     {
         return [
@@ -25,7 +22,7 @@ trait ControllerMetaDomainTrait
             'description' => __('Sample App for the WebServCo PHP Framework'),
         ];
     }
-    
+
     protected function getBlogPostsMeta()
     {
         return [
@@ -33,7 +30,7 @@ trait ControllerMetaDomainTrait
             'description' => __('Sample App for the WebServCo PHP Framework'),
         ];
     }
-    
+
     protected function getBlogPostMeta()
     {
         return [
